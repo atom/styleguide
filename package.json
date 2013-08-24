@@ -1,0 +1,4 @@
+{
+  "main": "./lib/ui-demo",
+  "description": "A demo of all the UI CSS components."
+}
