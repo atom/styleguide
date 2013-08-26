@@ -1,6 +1,20 @@
+@import "ui-mixins";
 @import "ui-variables";
 
 .ui-demo {
-  max-height: 500px;
+  max-height: 1000px;
   overflow: auto;
+}
+
+.example-code {
+  position: relative;
+  border: 1px solid @tool-panel-border-color;
+  border-radius: @component-border-radius;
+  margin: @component-padding 0;
+
+  .example {
+    padding: @component-padding;
+    background: lighten(@tool-panel-background-color, 2%);
+    border-radius: @component-border-radius @component-border-radius 0 0;
+  }
 }

@@ -1,4 +1,4 @@
-{View} = require 'space-pen'
+{View, $$} = require 'space-pen'
 
 module.exports =
 class UIDemoPanelView extends View
@@ -8,105 +8,135 @@ class UIDemoPanelView extends View
 
       @section class: 'bordered', =>
         @h1 class: 'section-heading', 'UI Demo'
-        @p 'This plugin exercises all the UI components.'
-        @p =>
-          @span 'All components here are in a '
-          @code '.tool-panel.panel-bottom'
+        @p 'This plugin exercises all UI components and acts as a sort of style guide.'
 
       @section class: 'bordered', =>
-        @h2 class: 'section-heading', 'List Group'
-        @h3 'ul.list-group'
-        @ul class: 'list-group', =>
-          @li 'Normal item'
-          @li class: 'selected', =>
-            @div class: 'highlight'
-            @span '.selected'
-          @li class: 'subtle', '.subtle'
-          @li class: 'info', '.info'
-          @li class: 'success', '.success'
-          @li class: 'warning', '.warning'
-          @li class: 'error', '.error'
-
-        @h3 'With icons'
-        @ul class: 'list-group', =>
-          @li =>
-            @span class: 'icon icon-file-directory', 'With .icon-file-directory'
-          @li =>
-            @i class: 'icon icon-file-directory'
-            @span 'With .icon-file-directory using <i> tags'
-          @li =>
-            @span class: 'no-icon', 'With .no-icon'
-          @li class: 'selected', =>
-            @span class: 'highlight'
-            @i class: 'icon icon-file-directory'
-            @span '.selected With .icon-file-directory'
-          @li => @span class: 'icon icon-file-text', '.icon-file-text'
-          @li => @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
-          @li => @span class: 'icon icon-file-submodule', '.icon-file-submodule'
-          @li => @span class: 'icon icon-file-media', '.icon-file-media'
-          @li => @span class: 'icon icon-book', '.icon-book'
-
-        @h3 'In an .inset-panel'
-        @div class: 'inset-panel', =>
-          @div class: 'panel-heading', '.list-group'
-          @div class: 'panel-body padded', =>
-            @ul class: 'list-group', =>
-              @li class: 'selected', =>
-                @span class: 'highlight'
-                @i class: 'icon icon-file-directory'
-                @span '.selected With .icon-file-directory'
-              @li => @span class: 'icon icon-file-text', '.icon-file-text'
-              @li => @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
-              @li => @span class: 'icon icon-file-submodule', '.icon-file-submodule'
-              @li => @span class: 'icon icon-file-media', '.icon-file-media'
+        @h1 class: 'section-heading', 'Tool Panel'
+        @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
+        @exampleCode '''
+          <div class="tool-panel panel-bottom padded">
+            ...
+          </div>
+        '''
+        @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
 
       @section class: 'bordered', =>
-        @h2 class: 'section-heading', 'List Tree'
-        @h3 'ul.list-tree'
-        @ul class: 'list-tree has-collapsable-children', =>
-          @li class: 'list-nested-item', =>
-            @span class: 'highlight'
-            @div class: 'list-item', =>
-              @span class: 'disclosure-arrow'
-              @span class: 'icon icon-file-directory', 'A Directory'
-            @ul class: 'list-tree', =>
-              @li class: 'list-nested-item', =>
-                @span class: 'highlight'
-                @div class: 'list-item', =>
-                  @span class: 'disclosure-arrow'
-                  @span class: 'icon icon-file-directory', 'Nested Directory'
-                @ul class: 'list-tree', =>
-                  @li class: 'list-item', => @span class: 'icon icon-file-text', 'File one'
-              @li class: 'list-nested-item collapsed', =>
-                @span class: 'highlight'
-                @div class: 'list-item', =>
-                  @span class: 'disclosure-arrow'
-                  @span class: 'icon icon-file-directory', 'Collpased Nested Directory'
-                @ul class: 'list-tree', =>
-                  @li class: 'list-item', => @span class: 'icon icon-file-text', 'File one'
-              @li class: 'list-item', => @span class: 'icon icon-file-text', 'File one'
-              @li class: 'list-item', => @span class: 'icon icon-file-text', 'File two'
-              @li class: 'list-item selected', =>
-                @span class: 'highlight'
-                @span class: 'icon icon-file-text', 'File three .selected!'
-          @li class: 'list-item', => @span class: 'icon icon-file-text', '.icon-file-text'
-          @li class: 'list-item', => @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
-          @li class: 'list-item', => @span class: 'icon icon-file-submodule', '.icon-file-submodule'
-          @li class: 'list-item', => @span class: 'icon icon-file-media', '.icon-file-media'
+        @h1 class: 'section-heading', 'List Group'
+        @p 'Use for anything that requires a list.'
+        @exampleCode '''
+          <ul class="list-group">
+            <li class="list-item">Normal item</li>
+            <li class="list-item selected">
+              <div class="highlight"></div>
+              This is the Selected item.
+            </li>
+            <li class="list-item subtle">Subtle</li>
+            <li class="list-item info">Info</li>
+            <li class="list-item success">Success</li>
+            <li class="list-item warning">Warning</li>
+            <li class="list-item error">Error</li>
+          </ul>
+        '''
+
+        @h2 'With icons'
+        @exampleCode '''
+          <ul class="list-group">
+            <li class="list-item">
+              <span class="icon icon-file-directory">Using a span with an icon</span>
+            </li>
+            <li class="list-item">
+              <i class="icon icon-file-directory"></i>With .icon-file-directory using &lt;i> tags
+            </li>
+            <li class="selected">
+              <div class="highlight"></div>
+              <i class="icon icon-file-directory"></i>Selected with .icon-file-directory
+            </li>
+            <li class="list-item"><span class="no-icon">With .no-icon</li>
+            <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
+            <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
+            <li class="list-item"><i class="icon icon-file-symlink-file"></i>With icon-file-symlink-file</li>
+            <li class="list-item"><i class="icon icon-file-submodule"></i>With icon-file-submodule</li>
+            <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
+          </ul>
+        '''
+
+        @h2 'In an .inset-panel'
+        @exampleCode '''
+          <div class="inset-panel">
+            <div class="panel-heading">My list-group with icons</div>
+            <div class="panel-body padded">
+              <ul class="list-group">
+                <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
+                <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
+                <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
+              </ul>
+            </div>
+          </div>
+        '''
 
       @section class: 'bordered', =>
-        @h1 class: 'section-heading', 'h1.section-heading'
-        @h2 class: 'section-heading', 'h2.section-heading'
-        @h3 class: 'section-heading', 'h3.section-heading'
+        @h1 class: 'section-heading', 'List Tree'
+        @p => @raw '<code>.list-tree</code>s are a special case of <code>.list-group</code>s'
+        @exampleCode '''
+          <ul class="list-tree has-collapsable-children">
+            <li class="list-nested-item">
+              <span class="highlight"></span>
+              <div class="list-item">
+                <span class="disclosure-arrow"></span><span class="icon icon-file-directory">A Directory</span>
+              </div>
+              <ul class="list-tree">
+                <li class="list-nested-item">
+                  <span class="highlight"></span>
+                  <div class="list-item">
+                    <span class="disclosure-arrow"></span><span class="icon icon-file-directory">Nested Directory</span>
+                  </div>
+                  <ul class="list-tree">
+                    <li class="list-item"> <span class="icon icon-file-text">File one</span></li>
+                  </ul>
+                </li>
+                <li class="list-nested-item collapsed">
+                  <span class="highlight"></span>
+                  <div class="list-item">
+                    <span class="disclosure-arrow"></span><span class="icon icon-file-directory">Collpased Nested Directory</span>
+                  </div>
+                  <ul class="list-tree">
+                    <li class="list-item"><span class="icon icon-file-text">File one</span></li>
+                  </ul>
+                </li>
+                <li class="list-item"> <span class="icon icon-file-text">File one</span></li>
+                <li class="list-item"> <span class="icon icon-file-text">File two</span></li>
+                <li class="list-item selected">
+                  <span class="highlight"></span>
+                  <span class="icon icon-file-text">File three .selected!</span>
+                </li>
+              </ul>
+            </li>
+            <li class="list-item"><span class="icon icon-file-text">.icon-file-text</span></li>
+            <li class="list-item"><span class="icon icon-file-symlink-file">.icon-file-symlink-file</span></li>
+            <li class="list-item"><span class="icon icon-file-submodule">.icon-file-submodule</span></li>
+            <li class="list-item"><span class="icon icon-file-media">.icon-file-media</span></li>
+          </ul>
+        '''
 
       @section class: 'bordered', =>
-        @h2 class: 'section-heading', 'Inset Panel'
-        @div class: 'inset-panel', =>
-          @div class: 'panel-heading', =>
-            @button class: 'btn btn-mini pull-right', 'Header Button'
-            @code '.panel-heading'
-          @div class: 'panel-body padded', =>
-            @code '.panel-body.padded'
+        @h1 class: 'section-heading', 'Inset Panel'
+        @p 'Use inside another panel.'
+        @h2 'Without a heading'
+        @exampleCode '''
+          <div class="inset-panel padded">
+            ....
+          </div>
+        '''
+
+        @h2 'With a heading'
+        @exampleCode '''
+          <div class="inset-panel">
+            <div class="panel-heading">An inset-panel heading</div>
+            <div class="panel-body padded">
+              ....
+            </div>
+          </div>
+        '''
 
       @section class: 'bordered', =>
         @h2 class: 'section-heading', 'Error messages'
@@ -121,4 +151,15 @@ class UIDemoPanelView extends View
 
   attach: =>
     rootView.vertical.append(this)
+
+  @exampleCode: (html) =>
+    exhtml = html.replace(/</g, '&lt;')
+    html = """
+      <div class="example-code">
+        <div class="example">
+          #{html}
+        </div>
+        <pre><code>#{exhtml}</code></pre>
+      </div>"""
+    $$ => @raw html
 
