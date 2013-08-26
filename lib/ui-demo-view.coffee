@@ -27,6 +27,30 @@ class UIDemoView extends ScrollView
         @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
 
       @section class: 'bordered', =>
+        @h1 class: 'section-heading', 'Inset Panel'
+        @p => @raw 'Use inside another panel, like a <code>.tool-panel</code>.'
+        @h2 'Without a heading'
+        @exampleCode '''
+          <div class="tool-panel panel-bottom padded">
+            <div class="inset-panel padded">
+              ....
+            </div>
+          </div>
+        '''
+
+        @h2 'With a heading'
+        @exampleCode '''
+          <div class="tool-panel panel-bottom padded">
+            <div class="inset-panel">
+              <div class="panel-heading">An inset-panel heading</div>
+              <div class="panel-body padded">
+                ....
+              </div>
+            </div>
+          </div>
+        '''
+
+      @section class: 'bordered', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
         @exampleCode '''
@@ -68,14 +92,16 @@ class UIDemoView extends ScrollView
 
         @h2 'In an .inset-panel'
         @exampleCode '''
-          <div class="inset-panel">
-            <div class="panel-heading">My list-group with icons</div>
-            <div class="panel-body padded">
-              <ul class="list-group">
-                <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
-                <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
-                <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
-              </ul>
+          <div class="tool-panel panel-bottom padded">
+            <div class="inset-panel">
+              <div class="panel-heading">My list-group with icons</div>
+              <div class="panel-body padded">
+                <ul class="list-group">
+                  <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
+                  <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
+                  <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
+                </ul>
+              </div>
             </div>
           </div>
         '''
@@ -122,26 +148,6 @@ class UIDemoView extends ScrollView
             <li class="list-item"><span class="icon icon-file-submodule">.icon-file-submodule</span></li>
             <li class="list-item"><span class="icon icon-file-media">.icon-file-media</span></li>
           </ul>
-        '''
-
-      @section class: 'bordered', =>
-        @h1 class: 'section-heading', 'Inset Panel'
-        @p 'Use inside another panel.'
-        @h2 'Without a heading'
-        @exampleCode '''
-          <div class="inset-panel padded">
-            ....
-          </div>
-        '''
-
-        @h2 'With a heading'
-        @exampleCode '''
-          <div class="inset-panel">
-            <div class="panel-heading">An inset-panel heading</div>
-            <div class="panel-body padded">
-              ....
-            </div>
-          </div>
         '''
 
       @section class: 'bordered', =>
