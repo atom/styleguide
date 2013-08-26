@@ -1,6 +1,6 @@
 $ = require 'jquery'
 Project = require 'project'
-UIDemoView = require './ui-demo-panel-view'
+UIDemoView = require './ui-demo-view'
 
 module.exports =
   activate: (state) ->
