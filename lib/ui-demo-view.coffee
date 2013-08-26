@@ -57,7 +57,6 @@ class UIDemoView extends ScrollView
           <ul class="list-group">
             <li class="list-item">Normal item</li>
             <li class="list-item selected">
-              <div class="highlight"></div>
               This is the Selected item.
             </li>
             <li class="list-item subtle">Subtle</li>
@@ -77,8 +76,7 @@ class UIDemoView extends ScrollView
             <li class="list-item">
               <i class="icon icon-file-directory"></i>With .icon-file-directory using &lt;i> tags
             </li>
-            <li class="selected">
-              <div class="highlight"></div>
+            <li class="list-item selected">
               <i class="icon icon-file-directory"></i>Selected with .icon-file-directory
             </li>
             <li class="list-item"><span class="no-icon">With .no-icon</li>
@@ -112,33 +110,23 @@ class UIDemoView extends ScrollView
         @exampleCode '''
           <ul class="list-tree has-collapsable-children">
             <li class="list-nested-item">
-              <span class="highlight"></span>
-              <div class="list-item">
-                <span class="disclosure-arrow"></span><span class="icon icon-file-directory">A Directory</span>
-              </div>
+              <div class="list-item"><span class="icon icon-file-directory">A Directory</span></div>
               <ul class="list-tree">
                 <li class="list-nested-item">
-                  <span class="highlight"></span>
-                  <div class="list-item">
-                    <span class="disclosure-arrow"></span><span class="icon icon-file-directory">Nested Directory</span>
-                  </div>
-                  <ul class="list-tree">
-                    <li class="list-item"> <span class="icon icon-file-text">File one</span></li>
-                  </ul>
-                </li>
-                <li class="list-nested-item collapsed">
-                  <span class="highlight"></span>
-                  <div class="list-item">
-                    <span class="disclosure-arrow"></span><span class="icon icon-file-directory">Collpased Nested Directory</span>
-                  </div>
+                  <div class="list-item"><span class="icon icon-file-directory">Nested Directory</span></div>
                   <ul class="list-tree">
                     <li class="list-item"><span class="icon icon-file-text">File one</span></li>
                   </ul>
                 </li>
-                <li class="list-item"> <span class="icon icon-file-text">File one</span></li>
-                <li class="list-item"> <span class="icon icon-file-text">File two</span></li>
+                <li class="list-nested-item collapsed">
+                  <div class="list-item"><span class="icon icon-file-directory">Collpased Nested Directory</span></div>
+                  <ul class="list-tree">
+                    <li class="list-item"><span class="icon icon-file-text">File one</span></li>
+                  </ul>
+                </li>
+                <li class="list-item"><span class="icon icon-file-text">File one</span></li>
+                <li class="list-item"><span class="icon icon-file-text">File two</span></li>
                 <li class="list-item selected">
-                  <span class="highlight"></span>
                   <span class="icon icon-file-text">File three .selected!</span>
                 </li>
               </ul>
