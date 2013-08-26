@@ -1,10 +1,16 @@
-{View, $$} = require 'space-pen'
+{$$} = require 'space-pen'
+ScrollView = require 'scroll-view'
+
+URI = 'atom://ui-demo'
 
 module.exports =
-class UIDemoPanelView extends View
+class UIDemoView extends ScrollView
+  registerDeserializer(this)
+
+  @URI: URI
 
   @content: ->
-    @div class: 'ui-demo tool-panel panel-bottom padded', =>
+    @div class: 'ui-demo padded', =>
 
       @section class: 'bordered', =>
         @h1 class: 'section-heading', 'UI Demo'
@@ -146,12 +152,6 @@ class UIDemoPanelView extends View
         @h2 class: 'section-heading', 'Loading spinners'
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
 
-  initialize: ->
-    @attach()
-
-  attach: =>
-    rootView.vertical.append(this)
-
   @exampleCode: (html) =>
     exhtml = html.replace(/</g, '&lt;')
     html = """
@@ -162,4 +162,19 @@ class UIDemoPanelView extends View
         <pre><code>#{exhtml}</code></pre>
       </div>"""
     $$ => @raw html
+
+  @deserialize: (options={}) ->
+    new UIDemoView()
+
+  initialize: ->
+
+  serialize: ->
+    deserializer: 'UIDemoView'
+
+  getUri: -> URI
+
+  getTitle: -> "UI Demo"
+
+  isEqual: (other) ->
+    other instanceof UIDemoView
 

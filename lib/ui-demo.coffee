@@ -1,8 +1,11 @@
-UIDemoPanelView = require './ui-demo-panel-view'
+$ = require 'jquery'
+Project = require 'project'
+UIDemoView = require './ui-demo-panel-view'
 
 module.exports =
   activate: (state) ->
-    @panelView = new UIDemoPanelView
+    Project.registerOpener (filePath) ->
+      new UIDemoView() if filePath is UIDemoView.URI
 
-  deactivate: ->
-    @panelView.destroy()
+    rootView.command 'ui-demo:show', ->
+      rootView.open(UIDemoView.URI)
