@@ -1,3 +1,4 @@
+$ = require 'jquery'
 {$$} = require 'space-pen'
 ScrollView = require 'scroll-view'
 
@@ -12,11 +13,11 @@ class UIDemoView extends ScrollView
   @content: ->
     @div class: 'ui-demo padded', =>
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'ui-demo', =>
         @h1 class: 'section-heading', 'UI Demo'
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'tool-panel', =>
         @h1 class: 'section-heading', 'Tool Panel'
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
         @exampleCode '''
@@ -26,7 +27,7 @@ class UIDemoView extends ScrollView
         '''
         @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'inset-panel', =>
         @h1 class: 'section-heading', 'Inset Panel'
         @p => @raw 'Use inside another panel, like a <code>.tool-panel</code>.'
         @h2 'Without a heading'
@@ -50,7 +51,7 @@ class UIDemoView extends ScrollView
           </div>
         '''
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'list-group', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
         @exampleCode '''
@@ -104,9 +105,10 @@ class UIDemoView extends ScrollView
           </div>
         '''
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'list-tree', =>
         @h1 class: 'section-heading', 'List Tree'
-        @p => @raw '<code>.list-tree</code>s are a special case of <code>.list-group</code>s'
+        @p => @raw 'A <code>.list-tree</code> is a special case of <code>.list-group</code>.'
+        @p => @raw '<code>.list-tree.has-collapsable-children</code> gives the children with nested items disclosure arrows.'
         @exampleCode '''
           <ul class="list-tree has-collapsable-children">
             <li class="list-nested-item">
@@ -138,11 +140,11 @@ class UIDemoView extends ScrollView
           </ul>
         '''
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'error-messages', =>
         @h2 class: 'section-heading', 'Error messages'
         @ul class: 'error-messages', outlet: 'errorMessages'
 
-      @section class: 'bordered', =>
+      @section class: 'bordered', 'data-name': 'loading-spinners', =>
         @h2 class: 'section-heading', 'Loading spinners'
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
 
@@ -158,16 +160,29 @@ class UIDemoView extends ScrollView
     $$ => @raw html
 
   @deserialize: (options={}) ->
-    new UIDemoView()
+    new UIDemoView(options)
 
-  initialize: ->
+  initialize: ({collapsedSections}={}) ->
+    @on 'click', '.section-heading', ->
+      $(this).parent().toggleClass('collapsed')
+
+    @setCollapsedSections(collapsedSections)
 
   serialize: ->
     deserializer: 'UIDemoView'
+    collapsedSections: @getCollapsedSections()
 
   getUri: -> URI
 
   getTitle: -> "UI Demo"
+
+  getCollapsedSections: ->
+    $(sec).attr('data-name') for sec in @find('section.collapsed')
+
+  setCollapsedSections: (collapsedSections=[]) ->
+    for section in collapsedSections
+      @find("[data-name=\"#{section}\"]").addClass('collapsed')
+    null
 
   isEqual: (other) ->
     other instanceof UIDemoView

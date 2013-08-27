@@ -5,7 +5,32 @@
   overflow: auto;
   color: @text-color;
   background-color: @tool-panel-background-color;
+
+  section.collapsed {
+    opacity: .6;
+    padding-top: @component-padding;
+    padding-bottom: @component-padding;
+    &:hover { opacity: 1; }
+
+    > .section-heading {
+      display: block;
+      margin: 0;
+    }
+
+    > * {
+      display: none
+    }
+  }
+
+  section .section-heading {
+    cursor: pointer;
+    &:hover {
+      .text(highlighted);
+      cursor: pointer;
+    }
+  }
 }
+
 .example-code {
   position: relative;
   border: 1px solid @tool-panel-border-color;
