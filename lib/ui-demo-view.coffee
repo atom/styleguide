@@ -170,7 +170,7 @@ class UIDemoView extends ScrollView
         @h2 'Basic example with one item selected'
         @exampleCode '''
           <div class="overlay from-top select-list">
-            <ol class="list-group highlight-selected">
+            <ol class="list-group">
               <li class="selected">one</li>
               <li>two</li>
               <li>three</li>
@@ -178,30 +178,30 @@ class UIDemoView extends ScrollView
           </div>
         '''
 
-        @h2 'Using multiple lines with icons.'
-        @p => @raw 'Use ...'
+        @h2 'Single line with icons'
         @exampleCode '''
           <div class="overlay from-top select-list">
-            <ol class="list-group highlight-selected">
-              <li class="two-lines">
-                <div class="primary-line icon icon-file-text">Primary line</div>
-                <div class="secondary-line no-icon">Secondary line</div>
+            <ol class="list-group">
+              <li class="selected">
+                <div class="status status-added icon icon-diff-added"></div>
+                <div class="icon icon-file-text">Some file</div>
               </li>
-              <li class="two-lines selected">
-                <div class="primary-line icon icon-file-symlink-file">A thing</div>
-                <div class="secondary-line no-icon">Description of the thing</div>
+              <li>
+                <div class="status status-modified icon icon-diff-modified"></div>
+                <div class="icon icon-file-text">Another file</div>
               </li>
-              <li class="two-lines">
-                <div class="primary-line icon icon-file-directory">Maybe you want this thing?</div>
-                <div class="secondary-line no-icon">Probably not, though</div>
+              <li>
+                <div class="status status-removed icon icon-diff-removed"></div>
+                <div class="icon icon-file-text">Yet another file</div>
               </li>
             </ol>
           </div>
         '''
 
+        @h2 'Multiple lines with no icons'
         @exampleCode '''
           <div class="overlay from-top select-list">
-            <ol class="list-group highlight-selected">
+            <ol class="list-group">
               <li class="two-lines">
                 <div class="primary-line">Primary line</div>
                 <div class="secondary-line">Secondary line</div>
@@ -210,9 +210,29 @@ class UIDemoView extends ScrollView
                 <div class="primary-line">A thing</div>
                 <div class="secondary-line">Description of the thing</div>
               </li>
+            </ol>
+          </div>
+        '''
+
+        @h2 'Using multiple lines with icons'
+        @p => @raw 'Use ...'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <ol class="list-group">
               <li class="two-lines">
-                <div class="primary-line">Maybe you want this thing?</div>
-                <div class="secondary-line">Probably not, though</div>
+                <div class="status status-added icon icon-diff-added"></div>
+                <div class="primary-line icon icon-file-text">Primary line</div>
+                <div class="secondary-line no-icon">Secondary line</div>
+              </li>
+              <li class="two-lines selected">
+                <div class="status status-modified icon icon-diff-modified"></div>
+                <div class="primary-line icon icon-file-symlink-file">A thing</div>
+                <div class="secondary-line no-icon">Description of the thing</div>
+              </li>
+              <li class="two-lines">
+                <div class="status status-renamed icon icon-diff-renamed"></div>
+                <div class="primary-line icon icon-file-symlink-file">A thing</div>
+                <div class="secondary-line no-icon">Description of the thing</div>
               </li>
             </ol>
           </div>
