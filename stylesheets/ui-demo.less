@@ -4,7 +4,7 @@
 .ui-demo {
   overflow: auto;
   color: @text-color;
-  background-color: @tool-panel-background-color;
+  background-color: lighten(@tool-panel-background-color, 5%);
 
   section.collapsed {
     opacity: .6;
@@ -28,6 +28,14 @@
       .text(highlighted);
       cursor: pointer;
     }
+  }
+
+  .overlay {
+    position: relative;
+  }
+
+  .select-list {
+    .editor.mini { height: 27px; }
   }
 }
 

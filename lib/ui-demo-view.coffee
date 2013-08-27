@@ -1,6 +1,7 @@
 $ = require 'jquery'
 {$$} = require 'space-pen'
 ScrollView = require 'scroll-view'
+OverlaySelectListView = require './overlay-select-list-view'
 
 URI = 'atom://ui-demo'
 
@@ -140,12 +141,107 @@ class UIDemoView extends ScrollView
           </ul>
         '''
 
+      @section class: 'bordered', 'data-name': 'overlay', =>
+        @h1 class: 'section-heading', 'Overlays'
+        @p => @raw 'Overlays are like dialog boxes.'
+        @p => @raw '''
+          Supported classes: <code>.from-top</code>, <code>.from-bottom</code> and <code>.floating</code>.
+          <code>.from-top</code> will come down from the top of the UI, etc.
+        '''
+        @exampleCode '''
+          <div class="overlay from-top">
+            ...
+          </div>
+        '''
+
+        @h2 'With a select-list'
+        @p => @raw 'Overlays are most commonly used with a <code>.select-list</code>.'
+        @exampleOverlaySelectList ['one', 'two', 'three']
+
+      @section class: 'bordered', 'data-name': 'select-list', =>
+        @h1 class: 'section-heading', 'Select List'
+        @p => @raw '''
+          Select lists have a lot of states. You wont be creating these
+          directly, but do so using the <code>SelectList</code> class. Your
+          <code>SelectList</code> will usually specify only the list items, and
+          hide/show the errors or loading message.
+        '''
+
+        @h2 'Basic example with one item selected'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <ol class="list-group highlight-selected">
+              <li class="selected">one</li>
+              <li>two</li>
+              <li>three</li>
+            </ol>
+          </div>
+        '''
+
+        @h2 'Using multiple lines with icons.'
+        @p => @raw 'Use ...'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <ol class="list-group highlight-selected">
+              <li class="two-lines">
+                <div class="primary-line icon icon-file-text">Primary line</div>
+                <div class="secondary-line no-icon">Secondary line</div>
+              </li>
+              <li class="two-lines selected">
+                <div class="primary-line icon icon-file-symlink-file">A thing</div>
+                <div class="secondary-line no-icon">Description of the thing</div>
+              </li>
+              <li class="two-lines">
+                <div class="primary-line icon icon-file-directory">Maybe you want this thing?</div>
+                <div class="secondary-line no-icon">Probably not, though</div>
+              </li>
+            </ol>
+          </div>
+        '''
+
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <ol class="list-group highlight-selected">
+              <li class="two-lines">
+                <div class="primary-line">Primary line</div>
+                <div class="secondary-line">Secondary line</div>
+              </li>
+              <li class="two-lines selected">
+                <div class="primary-line">A thing</div>
+                <div class="secondary-line">Description of the thing</div>
+              </li>
+              <li class="two-lines">
+                <div class="primary-line">Maybe you want this thing?</div>
+                <div class="secondary-line">Probably not, though</div>
+              </li>
+            </ol>
+          </div>
+        '''
+
+        @h2 'Error messages'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <div class="editor editor-colors mini">I searched for this</div>
+            <div class="error-message">Nothing has been found!</div>
+          </div>
+        '''
+
+        @h2 'Loading message'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <div class="editor editor-colors mini">User input</div>
+            <div class="loading">
+                <span class="loading-message">Chill, bro. Things are loading.</span><span class="badge">1234</span>
+            </div>
+          </div>
+        '''
+
       @section class: 'bordered', 'data-name': 'error-messages', =>
-        @h2 class: 'section-heading', 'Error messages'
+        @h1 class: 'section-heading', 'Error messages'
         @ul class: 'error-messages', outlet: 'errorMessages'
 
       @section class: 'bordered', 'data-name': 'loading-spinners', =>
-        @h2 class: 'section-heading', 'Loading spinners'
+        @h1 class: 'section-heading', 'Loading spinners'
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
 
   @exampleCode: (html) =>
@@ -157,7 +253,24 @@ class UIDemoView extends ScrollView
         </div>
         <pre><code>#{exhtml}</code></pre>
       </div>"""
-    $$ => @raw html
+    @raw html
+
+  @exampleOverlaySelectList: (array) ->
+    selectList = new OverlaySelectListView array, (item) ->
+      $$ ->
+        @li =>
+          @raw item
+
+    html = $('<div/>').append(selectList).html()
+    exhtml = html.replace(/</g, '&lt;')
+
+    @div class: 'example-code', =>
+      @div class: 'example', =>
+        @subview '__', selectList
+      @pre =>
+        @code =>
+          @raw exhtml
+
 
   @deserialize: (options={}) ->
     new UIDemoView(options)
@@ -186,4 +299,5 @@ class UIDemoView extends ScrollView
 
   isEqual: (other) ->
     other instanceof UIDemoView
+
 
