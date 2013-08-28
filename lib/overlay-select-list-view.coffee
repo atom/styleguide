@@ -21,5 +21,5 @@ class OverlaySelectListView extends SelectList
   itemForElement: (item) ->
     @itemGenerator(item)
 
-  confirmed: ({eventName}) ->
-    @cancel()
+  cancel: ->
+    # Do nothing. We never want this to hide
