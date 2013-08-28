@@ -48,7 +48,6 @@ class UIDemoView extends ScrollView
               @div class: "panel-body padded", 'Some Content'
         '''
 
-
       @section class: 'bordered', 'data-name': 'list-group', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
@@ -147,18 +146,19 @@ class UIDemoView extends ScrollView
             @div 'Some content'
         '''
 
-        @h2 'With a select-list'
-        @p => @raw 'Overlays are most commonly used with a <code>.select-list</code>.'
-        @exampleOverlaySelectList ['one', 'two', 'three']
-
       @section class: 'bordered', 'data-name': 'select-list', =>
         @h1 class: 'section-heading', 'Select List'
         @p => @raw '''
-          Select lists have a lot of states. You wont be creating these
-          directly, but do so using the <code>SelectList</code> class. Your
-          <code>SelectList</code> will usually specify only the list items, and
-          hide/show the errors or loading message.
+          You wont be creating a <code>.select-list</code> directly, but will do so
+          by extending the <code>SelectList</code> class. Your
+          <code>SelectList</code> will usually specify only the list items,
+          and hide/show the errors or loading message.
         '''
+
+        @p => @raw 'This is how you will typically specify a <code>.select-list</code>.'
+        @exampleOverlaySelectList ['one', 'two', 'three']
+
+        @p => @raw 'The list items have many options you can use, and shows you how they will display.'
 
         @h2 'Basic example with one item selected'
         @exampleCode '''
@@ -196,8 +196,7 @@ class UIDemoView extends ScrollView
                 @div class: 'secondary-line', 'Description of the thing'
         '''
 
-        @h2 'Using multiple lines with icons'
-        @p => @raw 'Use ...'
+        @h2 'Multiple lines with icons'
         @exampleCode '''
           @div class: 'overlay from-top select-list', =>
             @ol class: 'list-group', =>
@@ -302,7 +301,7 @@ class UIDemoView extends ScrollView
 
     @subview '__', editorBlock
 
-  # TODO: mayeb take this out. It might not add that much to the docs?
+  # TODO: maybe take this out. It might not add that much to the docs?
   @exampleOverlaySelectList: (array) ->
     selectList = new OverlaySelectListView array, (item) ->
       $$ ->
@@ -325,6 +324,7 @@ class UIDemoView extends ScrollView
           @appendTo(rootView)
           @miniEditor.focus()
 
+        # Here you specify the list items
         itemForElement: (item) ->
           $$ ->
             @li =>
