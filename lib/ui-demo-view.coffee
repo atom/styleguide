@@ -48,59 +48,59 @@ class UIDemoView extends ScrollView
               @div class: "panel-body padded", 'Some Content'
         '''
 
-      ###
+
       @section class: 'bordered', 'data-name': 'list-group', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
         @exampleCode '''
-          <ul class="list-group">
-            <li class="list-item">Normal item</li>
-            <li class="list-item selected">
-              This is the Selected item.
-            </li>
-            <li class="list-item subtle">Subtle</li>
-            <li class="list-item info">Info</li>
-            <li class="list-item success">Success</li>
-            <li class="list-item warning">Warning</li>
-            <li class="list-item error">Error</li>
-          </ul>
+          @ul class: 'list-group', =>
+            @li class: 'list-item', 'Normal item'
+            @li class: 'list-item selected', =>
+              @span 'This is the Selected item.'
+            @li class: 'list-item subtle', 'Subtle'
+            @li class: 'list-item info', 'Info'
+            @li class: 'list-item success', 'Success'
+            @li class: 'list-item warning', 'Warning'
+            @li class: 'list-item error', 'Error'
         '''
 
         @h2 'With icons'
         @exampleCode '''
-          <ul class="list-group">
-            <li class="list-item">
-              <span class="icon icon-file-directory">Using a span with an icon</span>
-            </li>
-            <li class="list-item">
-              <i class="icon icon-file-directory"></i>With .icon-file-directory using &lt;i> tags
-            </li>
-            <li class="list-item selected">
-              <i class="icon icon-file-directory"></i>Selected with .icon-file-directory
-            </li>
-            <li class="list-item"><span class="no-icon">With .no-icon</li>
-            <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
-            <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
-            <li class="list-item"><i class="icon icon-file-symlink-file"></i>With icon-file-symlink-file</li>
-            <li class="list-item"><i class="icon icon-file-submodule"></i>With icon-file-submodule</li>
-            <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
-          </ul>
+          @ul class: 'list-group', =>
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-directory', 'Using a span with an icon'
+            @li class: 'list-item', =>
+              @i class: 'icon icon-file-directory', =>
+                @span 'With .icon-file-directory using <i> tags'
+            @li class: 'list-item selected', =>
+              @span class: 'icon icon-file-directory', 'Selected with .icon-file-directory'
+            @li class: 'list-item', =>
+              @span class: 'no-icon', 'With .no-icon'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-text', 'With icon-file-text'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-media', 'With icon-file-media'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-symlink-file', 'With icon-file-symlink-file'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-submodule', 'With icon-file-submodule'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-book', 'With icon-book'
         '''
 
         @h2 'In an .inset-panel'
         @exampleCode '''
-          <div class="tool-panel panel-bottom padded">
-            <div class="inset-panel">
-              <div class="panel-heading">My list-group with icons</div>
-              <div class="panel-body padded">
-                <ul class="list-group">
-                  <li class="list-item"><i class="icon icon-file-text"></i>With icon-file-text</li>
-                  <li class="list-item"><i class="icon icon-file-media"></i>With icon-file-media</li>
-                  <li class="list-item"><i class="icon icon-book"></i>With icon-book</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          @div class: 'tool-panel panel-bottom padded', =>
+            @div class: 'inset-panel', =>
+              @div class: 'panel-heading', 'My list-group with icons'
+              @div class: 'panel-body padded', =>
+                @ul class: 'list-group', =>
+                  @li class: 'list-item', =>
+                    @span class: 'icon icon-file-text', 'With icon-file-text'
+                  @li class: 'list-item', =>
+                    @span class: 'icon icon-file-media', 'With icon-file-media'
+                  @li class: 'list-item', =>
+                    @span class: 'icon icon-book', 'With icon-book'
         '''
 
       @section class: 'bordered', 'data-name': 'list-tree', =>
@@ -108,34 +108,31 @@ class UIDemoView extends ScrollView
         @p => @raw 'A <code>.list-tree</code> is a special case of <code>.list-group</code>.'
         @p => @raw '<code>.list-tree.has-collapsable-children</code> gives the children with nested items disclosure arrows.'
         @exampleCode '''
-          <ul class="list-tree has-collapsable-children">
-            <li class="list-nested-item">
-              <div class="list-item"><span class="icon icon-file-directory">A Directory</span></div>
-              <ul class="list-tree">
-                <li class="list-nested-item">
-                  <div class="list-item"><span class="icon icon-file-directory">Nested Directory</span></div>
-                  <ul class="list-tree">
-                    <li class="list-item"><span class="icon icon-file-text">File one</span></li>
-                  </ul>
-                </li>
-                <li class="list-nested-item collapsed">
-                  <div class="list-item"><span class="icon icon-file-directory">Collpased Nested Directory</span></div>
-                  <ul class="list-tree">
-                    <li class="list-item"><span class="icon icon-file-text">File one</span></li>
-                  </ul>
-                </li>
-                <li class="list-item"><span class="icon icon-file-text">File one</span></li>
-                <li class="list-item"><span class="icon icon-file-text">File two</span></li>
-                <li class="list-item selected">
-                  <span class="icon icon-file-text">File three .selected!</span>
-                </li>
-              </ul>
-            </li>
-            <li class="list-item"><span class="icon icon-file-text">.icon-file-text</span></li>
-            <li class="list-item"><span class="icon icon-file-symlink-file">.icon-file-symlink-file</span></li>
-            <li class="list-item"><span class="icon icon-file-submodule">.icon-file-submodule</span></li>
-            <li class="list-item"><span class="icon icon-file-media">.icon-file-media</span></li>
-          </ul>
+          @ul class: 'list-tree has-collapsable-children', =>
+            @li class: 'list-nested-item', =>
+              @div class: 'list-item', =>
+                @span class: 'icon icon-file-directory', 'A Directory'
+              @ul class: 'list-tree', =>
+                @li class: 'list-nested-item', =>
+                  @div class: 'list-item', =>
+                    @span class: 'icon icon-file-directory', 'Nested Directory'
+                  @ul class: 'list-tree', =>
+                    @li class: 'list-item', =>
+                      @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-nested-item collapsed', =>
+                  @div class: 'list-item', =>
+                    @span class: 'icon icon-file-directory', 'Collpased Nested Directory'
+                  @ul class: 'list-tree', =>
+                    @li class: 'list-item', =>
+                      @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-item', =>
+                  @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-item selected', =>
+                  @span class: 'icon icon-file-text', 'File three .selected!'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-text', '.icon-file-text'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
         '''
 
       @section class: 'bordered', 'data-name': 'overlay', =>
@@ -146,9 +143,8 @@ class UIDemoView extends ScrollView
           <code>.from-top</code> will come down from the top of the UI, etc.
         '''
         @exampleCode '''
-          <div class="overlay from-top">
-            ...
-          </div>
+          @div class: 'overlay from-top', =>
+            @div 'Some content'
         '''
 
         @h2 'With a select-list'
@@ -166,112 +162,84 @@ class UIDemoView extends ScrollView
 
         @h2 'Basic example with one item selected'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <ol class="list-group">
-              <li class="selected">one</li>
-              <li>two</li>
-              <li>three</li>
-            </ol>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group', =>
+              @li class: 'selected', 'one'
+              @li 'two'
+              @li 'three'
         '''
 
         @h2 'Single line with icons'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <ol class="list-group">
-              <li class="selected">
-                <div class="status status-added icon icon-diff-added"></div>
-                <div class="icon icon-file-text">Some file</div>
-              </li>
-              <li>
-                <div class="status status-modified icon icon-diff-modified"></div>
-                <div class="icon icon-file-text">Another file</div>
-              </li>
-              <li>
-                <div class="status status-removed icon icon-diff-removed"></div>
-                <div class="icon icon-file-text">Yet another file</div>
-              </li>
-            </ol>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group', =>
+              @li class: 'selected', =>
+                @div class: 'status status-added icon icon-diff-added', ''
+                @div class: 'icon icon-file-text', 'Some file'
+              @li =>
+                @div class: 'status status-modified icon icon-diff-modified', ''
+                @div class: 'icon icon-file-text', 'Another file'
+              @li =>
+                @div class: 'status status-removed icon icon-diff-removed', ''
+                @div class: 'icon icon-file-text', 'Yet another file'
         '''
 
         @h2 'Multiple lines with no icons'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <ol class="list-group">
-              <li class="two-lines">
-                <div class="primary-line">Primary line</div>
-                <div class="secondary-line">Secondary line</div>
-              </li>
-              <li class="two-lines selected">
-                <div class="primary-line">A thing</div>
-                <div class="secondary-line">Description of the thing</div>
-              </li>
-            </ol>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group', =>
+              @li class: 'two-lines', =>
+                @div class: 'primary-line', 'Primary line'
+                @div class: 'secondary-line', 'Secondary line'
+              @li class: 'two-lines selected', =>
+                @div class: 'primary-line', 'A thing'
+                @div class: 'secondary-line', 'Description of the thing'
         '''
 
         @h2 'Using multiple lines with icons'
         @p => @raw 'Use ...'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <ol class="list-group">
-              <li class="two-lines">
-                <div class="status status-added icon icon-diff-added"></div>
-                <div class="primary-line icon icon-file-text">Primary line</div>
-                <div class="secondary-line no-icon">Secondary line</div>
-              </li>
-              <li class="two-lines selected">
-                <div class="status status-modified icon icon-diff-modified"></div>
-                <div class="primary-line icon icon-file-symlink-file">A thing</div>
-                <div class="secondary-line no-icon">Description of the thing</div>
-              </li>
-              <li class="two-lines">
-                <div class="status status-renamed icon icon-diff-renamed"></div>
-                <div class="primary-line icon icon-file-symlink-file">A thing</div>
-                <div class="secondary-line no-icon">Description of the thing</div>
-              </li>
-            </ol>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group', =>
+              @li class: 'two-lines', =>
+                @div class: 'status status-added icon icon-diff-added', ''
+                @div class: 'primary-line icon icon-file-text', 'Primary line'
+                @div class: 'secondary-line no-icon', 'Secondary line'
+              @li class: 'two-lines selected', =>
+                @div class: 'status status-modified icon icon-diff-modified', ''
+                @div class: 'primary-line icon icon-file-symlink-file', 'A thing'
+                @div class: 'secondary-line no-icon', 'Description of the thing'
+              @li class: 'two-lines', =>
+                @div class: 'status status-renamed icon icon-diff-renamed', ''
+                @div class: 'primary-line icon icon-file-symlink-file', 'A thing'
+                @div class: 'secondary-line no-icon', 'Description of the thing'
         '''
 
         @h2 'Using mark-active class to indicate the active item'
         @p => @raw 'Use ...'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <ol class="list-group mark-active">
-              <li>
-                Normal item
-              </li>
-              <li class="selected">
-                Selected &mdash; user is arrowing through the list.
-              </li>
-              <li class="active">
-                This is the active item
-              </li>
-              <li class="selected active">
-                Selected AND Active!
-              </li>
-            </ol>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group mark-active', =>
+              @li 'Normal item'
+              @li class: 'selected', 'Selected &mdash; user is arrowing through the list.'
+              @li class: 'active', 'This is the active item'
+              @li class: 'selected active', 'Selected AND Active!'
         '''
 
         @h2 'Error messages'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <div class="editor editor-colors mini">I searched for this</div>
-            <div class="error-message">Nothing has been found!</div>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @div class: 'editor editor-colors mini', 'I searched for this'
+            @div class: 'error-message', 'Nothing has been found!'
         '''
 
         @h2 'Loading message'
         @exampleCode '''
-          <div class="overlay from-top select-list">
-            <div class="editor editor-colors mini">User input</div>
-            <div class="loading">
-                <span class="loading-message">Chill, bro. Things are loading.</span><span class="badge">1234</span>
-            </div>
-          </div>
+          @div class: 'overlay from-top select-list', =>
+            @div class: 'editor editor-colors mini', 'User input'
+            @div class: 'loading', =>
+              @span class: 'loading-message', 'Chill, bro. Things are loading.'
+              @span class: 'badge', '1234'
         '''
 
       @section class: 'bordered', 'data-name': 'error-messages', =>
@@ -281,7 +249,6 @@ class UIDemoView extends ScrollView
       @section class: 'bordered', 'data-name': 'loading-spinners', =>
         @h1 class: 'section-heading', 'Loading spinners'
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
-      ###
 
   @exampleCode: (spacePenCoffee) =>
 
@@ -335,6 +302,7 @@ class UIDemoView extends ScrollView
 
     @subview '__', editorBlock
 
+  # TODO: mayeb take this out. It might not add that much to the docs?
   @exampleOverlaySelectList: (array) ->
     selectList = new OverlaySelectListView array, (item) ->
       $$ ->
@@ -342,14 +310,39 @@ class UIDemoView extends ScrollView
           @raw item
 
     html = $('<div/>').append(selectList).html()
-    exhtml = html.replace(/</g, '&lt;')
 
-    @div class: 'example-code', =>
-      @div class: 'example', =>
+    coffeeScript = """
+      class OverlaySelectListView extends SelectList
+        @viewClass: ->
+          "\#{super} overlay from-top"
+
+        initialize: (@listOfItems) ->
+          super
+          @setArray(@listOfItems)
+
+        attach: ->
+          super
+          @appendTo(rootView)
+          @miniEditor.focus()
+
+        itemForElement: (item) ->
+          $$ ->
+            @li =>
+              @raw item
+
+      view = new OverlaySelectListView([#{array}])
+      view.attach()
+    """
+
+    @div class: 'example', =>
+      @div class: 'example-rendered', =>
         @subview '__', selectList
-      @pre =>
-        @code =>
-          @raw exhtml
+      @div class: 'example-code show-example-space-pen', =>
+        @div class: 'btn-group btn-group-xs btn-toggle', =>
+          @button class: 'btn selected', 'data-display-class': 'show-example-space-pen', 'space-pen'
+          @button class: 'btn', 'data-display-class': 'show-example-html', 'html'
+        @colorizedCodeBlock 'example-space-pen', 'source.coffee', coffeeScript
+        @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
 
   @deserialize: (options={}) ->
