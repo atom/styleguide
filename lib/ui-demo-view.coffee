@@ -107,11 +107,11 @@ class UIDemoView extends ScrollView
             @li class: 'list-item', 'Normal item'
             @li class: 'list-item selected', =>
               @span 'This is the Selected item.'
-            @li class: 'list-item subtle', 'Subtle'
-            @li class: 'list-item info', 'Info'
-            @li class: 'list-item success', 'Success'
-            @li class: 'list-item warning', 'Warning'
-            @li class: 'list-item error', 'Error'
+            @li class: 'list-item text-subtle', 'Subtle'
+            @li class: 'list-item text-info', 'Info'
+            @li class: 'list-item text-success', 'Success'
+            @li class: 'list-item text-warning', 'Warning'
+            @li class: 'list-item text-error', 'Error'
         '''
 
         @h2 'With icons'
