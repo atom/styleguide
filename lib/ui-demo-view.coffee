@@ -22,6 +22,36 @@ class UIDemoView extends ScrollView
         @h1 class: 'section-heading', 'UI Demo'
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
 
+      @section class: 'bordered', 'data-name': 'text', =>
+        @h1 class: 'section-heading', 'Text classes'
+        @p => @raw 'There are a number of text classes.'
+
+        @h2 'text-* classes'
+        @exampleCode '''
+          @p class: 'text-smaller', 'Smaller text'
+          @div 'Normal text'
+          @div class: 'text-subtle', 'Subtle text'
+          @div class: 'text-highlight', 'Highlighted text'
+          @div class: 'text-info', 'Info text'
+          @div class: 'text-success', 'Success text'
+          @div class: 'text-warning', 'Warning text'
+          @div class: 'text-error', 'Error text'
+        '''
+
+        @h2 'highlight-* classes'
+        @exampleCode '''
+          @span 'Normal text, '
+          @span class: 'highlight', 'Highlighted'
+          @span ' '
+          @span class: 'highlight-info', 'Info'
+          @span ' '
+          @span class: 'highlight-success', 'Success'
+          @span ' '
+          @span class: 'highlight-warning', 'Warning'
+          @span ' '
+          @span class: 'highlight-error', 'Error'
+        '''
+
       @section class: 'bordered', 'data-name': 'tool-panel', =>
         @h1 class: 'section-heading', 'Tool Panel'
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
