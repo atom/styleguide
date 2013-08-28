@@ -1,7 +1,9 @@
 $ = require 'jquery'
-{$$} = require 'space-pen'
+{$$, $$$} = require 'space-pen'
 ScrollView = require 'scroll-view'
 OverlaySelectListView = require './overlay-select-list-view'
+coffee = require 'coffee-script'
+beautifyHtml = require('js-beautify').html
 
 URI = 'atom://ui-demo'
 
@@ -22,36 +24,30 @@ class UIDemoView extends ScrollView
         @h1 class: 'section-heading', 'Tool Panel'
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
         @exampleCode '''
-          <div class="tool-panel panel-bottom padded">
-            ...
-          </div>
+          @div class: 'tool-panel panel-bottom padded', =>
+            @div 'Some content'
         '''
         @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
+
 
       @section class: 'bordered', 'data-name': 'inset-panel', =>
         @h1 class: 'section-heading', 'Inset Panel'
         @p => @raw 'Use inside another panel, like a <code>.tool-panel</code>.'
         @h2 'Without a heading'
         @exampleCode '''
-          <div class="tool-panel panel-bottom padded">
-            <div class="inset-panel padded">
-              ....
-            </div>
-          </div>
+          @div class: "tool-panel panel-bottom padded", =>
+            @div class: "inset-panel padded", 'Some content'
         '''
 
         @h2 'With a heading'
         @exampleCode '''
-          <div class="tool-panel panel-bottom padded">
-            <div class="inset-panel">
-              <div class="panel-heading">An inset-panel heading</div>
-              <div class="panel-body padded">
-                ....
-              </div>
-            </div>
-          </div>
+          @div class: "tool-panel panel-bottom padded", =>
+            @div class: "inset-panel", =>
+              @div class: "panel-heading", 'An inset-panel heading'
+              @div class: "panel-body padded", 'Some Content'
         '''
 
+      ###
       @section class: 'bordered', 'data-name': 'list-group', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
@@ -284,17 +280,34 @@ class UIDemoView extends ScrollView
       @section class: 'bordered', 'data-name': 'loading-spinners', =>
         @h1 class: 'section-heading', 'Loading spinners'
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
+      ###
 
-  @exampleCode: (html) =>
-    exhtml = html.replace(/</g, '&lt;')
-    html = """
-      <div class="example-code">
-        <div class="example">
-          #{html}
-        </div>
-        <pre><code>#{exhtml}</code></pre>
-      </div>"""
-    @raw html
+  @exampleCode: (spacePenCoffee) =>
+
+    # I need to pass the proper context to the spacepen functions, so I return
+    # a fn, which I will apply after eval'ing. Magic!
+    wrappedCode = """
+      evaluator = ->
+      #{('  '+line for line in spacePenCoffee.split('\n')).join('\n')}
+      evaluator
+    """
+
+    # FIXME: Is this the best way to grab the html from spacepen?
+    html = $$$ ->
+      coffee.eval(wrappedCode).apply(this)
+
+    @div class: 'example', =>
+      @div class: 'example-rendered', =>
+        @raw html
+
+      @div class: 'example-code show-example-space-pen', =>
+        @div class: 'btn-group btn-group-xs btn-toggle', =>
+          @button class: 'btn selected', 'data-display-class': 'show-example-space-pen', 'space-pen'
+          @button class: 'btn', 'data-display-class': 'show-example-html', 'html'
+        @pre class: 'example-space-pen', =>
+          @code spacePenCoffee
+        @pre class: 'example-html', =>
+          @code beautifyHtml(html)
 
   @exampleOverlaySelectList: (array) ->
     selectList = new OverlaySelectListView array, (item) ->
@@ -319,6 +332,17 @@ class UIDemoView extends ScrollView
   initialize: ({collapsedSections}={}) ->
     @on 'click', '.section-heading', ->
       $(this).parent().toggleClass('collapsed')
+
+    @on 'click', '.example-code .btn-group .btn', ->
+      btn = $(this)
+      example = btn.parents('.example-code')
+      clas = btn.attr('data-display-class')
+
+      example.find('.btn').removeClass('selected')
+      example.removeClass('show-example-html show-example-space-pen')
+      example.addClass(clas)
+
+      btn.addClass('selected')
 
     @setCollapsedSections(collapsedSections)
 

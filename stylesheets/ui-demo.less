@@ -24,8 +24,10 @@
 
   section .section-heading {
     cursor: pointer;
+    font-weight: bold;
     &:hover {
       .text(highlighted);
+      font-weight: bold;
       cursor: pointer;
     }
   }
@@ -39,7 +41,7 @@
   }
 }
 
-.example-code {
+.example {
   display: -webkit-flex;
   border: 1px solid @tool-panel-border-color;
   border-radius: @component-border-radius;
@@ -47,14 +49,30 @@
 
   > * { width: 50%; }
 
-  .example {
+  .example-rendered {
     position: relative;
     padding: @component-padding;
     background: lighten(@tool-panel-background-color, 2%);
     border-radius: @component-border-radius 0 0 @component-border-radius;
   }
 
-  pre {
-    border-radius: 0 @component-border-radius @component-border-radius 0;
+  .example-code {
+    &.show-example-space-pen {
+      .example-space-pen { display: block; }
+    }
+    &.show-example-html {
+      .example-html { display: block; }
+    }
+
+    .btn-group{
+      float: right;
+      .btn.selected { background-color: #222; }
+    }
+
+    pre {
+      display: none;
+      border-radius: 0 @component-border-radius @component-border-radius 0;
+    }
   }
+
 }
