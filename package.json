@@ -1,4 +1,22 @@
 {
   "main": "./lib/ui-demo",
-  "description": "A demo of all the UI CSS components."
+  "version": "0.1.0",
+  "main": "./lib/ui-demo",
+  "description": "A demo of all the UI CSS components.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/ui-demo.git"
+  },
+  "dependencies": {
+    "js-beautify": "~1.4.x"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/ui-demo/issues"
+  },
+  "engines": {
+    "atom": "*"
+  },
+  "publishConfig": {
+    "registry": "https://atom.iriscouch.com/registry/_design/app/_rewrite"
+  }
 }
