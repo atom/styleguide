@@ -40,14 +40,21 @@
 }
 
 .example-code {
-  position: relative;
+  display: -webkit-flex;
   border: 1px solid @tool-panel-border-color;
   border-radius: @component-border-radius;
   margin: @component-padding 0;
 
+  > * { width: 50%; }
+
   .example {
+    position: relative;
     padding: @component-padding;
     background: lighten(@tool-panel-background-color, 2%);
-    border-radius: @component-border-radius @component-border-radius 0 0;
+    border-radius: @component-border-radius 0 0 @component-border-radius;
+  }
+
+  pre {
+    border-radius: 0 @component-border-radius @component-border-radius 0;
   }
 }
