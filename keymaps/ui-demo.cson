@@ -1,3 +1,7 @@
 'body':
   'meta-ctrl-D': 'ui-demo:show'
 
+'.ui-demo':
+  'meta-x': 'native!'
+  'meta-c': 'native!'
+  'meta-v': 'native!'

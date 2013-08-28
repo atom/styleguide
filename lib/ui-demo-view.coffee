@@ -12,7 +12,7 @@ class UIDemoView extends ScrollView
   @URI: URI
 
   @content: ->
-    @div class: 'ui-demo padded', =>
+    @div class: 'ui-demo padded', tabindex: -1, =>
 
       @section class: 'bordered', 'data-name': 'ui-demo', =>
         @h1 class: 'section-heading', 'UI Demo'
