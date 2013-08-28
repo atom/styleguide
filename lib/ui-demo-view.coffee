@@ -1,6 +1,8 @@
 $ = require 'jquery'
+_ = require 'underscore'
 {$$, $$$} = require 'space-pen'
 ScrollView = require 'scroll-view'
+Editor = require 'editor'
 OverlaySelectListView = require './overlay-select-list-view'
 coffee = require 'coffee-script'
 beautifyHtml = require('js-beautify').html
@@ -28,7 +30,6 @@ class UIDemoView extends ScrollView
             @div 'Some content'
         '''
         @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
-
 
       @section class: 'bordered', 'data-name': 'inset-panel', =>
         @h1 class: 'section-heading', 'Inset Panel'
@@ -304,10 +305,35 @@ class UIDemoView extends ScrollView
         @div class: 'btn-group btn-group-xs btn-toggle', =>
           @button class: 'btn selected', 'data-display-class': 'show-example-space-pen', 'space-pen'
           @button class: 'btn', 'data-display-class': 'show-example-html', 'html'
-        @pre class: 'example-space-pen', =>
-          @code spacePenCoffee
-        @pre class: 'example-html', =>
-          @code beautifyHtml(html)
+        @colorizedCodeBlock 'example-space-pen', 'source.coffee', spacePenCoffee
+        @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
+
+  @colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
+    # FIXME: this is editor abuse. I just want the tokenized html.
+    editor = new Editor(mini: true)
+    editor.setText(code)
+
+    editorBlock = $$ ->
+      @div class: cssClass+' editor mini', ''
+
+    refreshHtml = (timeout) ->
+      fn = ->
+        html = editor.htmlForScreenRows(0, editor.getLineCount()-1)
+        editorBlock.html(html)
+      # FIXME: does not colorize without the timeout...
+      if timeout then setTimeout(fn, 10) else fn()
+    refreshHtml() # initially set the null-grammar'd code
+
+    if grammar = syntax.grammarForScopeName(grammarScopeName)
+      editor.setGrammar(grammar)
+      refreshHtml(true)
+    else
+      syntax.on 'grammar-added grammar-updated', (grammar) ->
+        return unless grammar.scopeName == grammarScopeName
+        editor.setGrammar(grammar)
+        refreshHtml(true)
+
+    @subview '__', editorBlock
 
   @exampleOverlaySelectList: (array) ->
     selectList = new OverlaySelectListView array, (item) ->

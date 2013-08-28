@@ -57,6 +57,9 @@
   }
 
   .example-code {
+    position: relative;
+    background-color: @inset-panel-background-color;
+
     &.show-example-space-pen {
       .example-space-pen { display: block; }
     }
@@ -65,12 +68,19 @@
     }
 
     .btn-group{
-      float: right;
+      position: absolute;
+      top: @component-padding;
+      right: @component-padding;
+      z-index: 10;
       .btn.selected { background-color: #222; }
     }
 
-    pre {
+    .editor {
+      background-color: transparent;
       display: none;
+      border: none;
+      -webkit-user-select: text;
+      padding: @component-padding;
       border-radius: 0 @component-border-radius @component-border-radius 0;
     }
   }
