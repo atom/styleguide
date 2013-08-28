@@ -120,8 +120,8 @@ class UIDemoView extends ScrollView
             @li class: 'list-item', =>
               @span class: 'icon icon-file-directory', 'Using a span with an icon'
             @li class: 'list-item', =>
-              @i class: 'icon icon-file-directory', =>
-                @span 'With .icon-file-directory using <i> tags'
+              @i class: 'icon icon-file-directory', ''
+              @span 'With .icon-file-directory using <i> tags'
             @li class: 'list-item selected', =>
               @span class: 'icon icon-file-directory', 'Selected with .icon-file-directory'
             @li class: 'list-item', =>
