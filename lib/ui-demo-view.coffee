@@ -238,6 +238,27 @@ class UIDemoView extends ScrollView
           </div>
         '''
 
+        @h2 'Using mark-active class to indicate the active item'
+        @p => @raw 'Use ...'
+        @exampleCode '''
+          <div class="overlay from-top select-list">
+            <ol class="list-group mark-active">
+              <li>
+                Normal item
+              </li>
+              <li class="selected">
+                Selected &mdash; user is arrowing through the list.
+              </li>
+              <li class="active">
+                This is the active item
+              </li>
+              <li class="selected active">
+                Selected AND Active!
+              </li>
+            </ol>
+          </div>
+        '''
+
         @h2 'Error messages'
         @exampleCode '''
           <div class="overlay from-top select-list">
