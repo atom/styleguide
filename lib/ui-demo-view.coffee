@@ -51,6 +51,27 @@ class UIDemoView extends ScrollView
           @span ' '
           @span class: 'highlight-error', 'Error'
         '''
+      @section class: 'bordered', 'data-name': 'git', =>
+        @h1 class: 'section-heading', 'Git related classes'
+        @p => @raw 'Often we need git related classes to specify status.'
+
+        @h2 'status-* classes'
+        @exampleCode '''
+          @div class: 'status-ignored', 'Ignored'
+          @div class: 'status-added', 'Added'
+          @div class: 'status-modified', 'Modified'
+          @div class: 'status-removed', 'Removed'
+          @div class: 'status-renamed', 'Renamed'
+        '''
+
+        @h2 'status-* classes with related icons'
+        @exampleCode '''
+          @span class: 'status-ignored icon icon-diff-ignored', ''
+          @span class: 'status-added icon icon-diff-added', ''
+          @span class: 'status-modified icon icon-diff-modified', ''
+          @span class: 'status-removed icon icon-diff-removed', ''
+          @span class: 'status-renamed icon icon-diff-renamed', ''
+        '''
 
       @section class: 'bordered', 'data-name': 'tool-panel', =>
         @h1 class: 'section-heading', 'Tool Panel'
