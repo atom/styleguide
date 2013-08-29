@@ -69,6 +69,32 @@ class UIDemoView extends ScrollView
             @button class: 'btn', 'Do it'
         '''
 
+        @h2 '.inline-block'
+        @p 'Sometimes you need to separate components horizontally.'
+        @exampleCode '''
+          @div class: 'block', =>
+            @label 'This is a thing with stuff in it'
+            @div =>
+              @div class: 'inline-block editor mini editor-colors', 'Something you typed...'
+              @div class: 'inline-block btn-group', =>
+                @button class: 'btn', 'One'
+                @button class: 'btn', 'Two'
+
+          @div class: 'block', =>
+            @button class: 'inline-block btn', 'Do it'
+            @button class: 'inline-block btn', 'Another'
+            @button class: 'inline-block btn', 'OMG again'
+        '''
+
+        @h2 '.inline-block-tight'
+        @p 'You might want things to be a little closer to each other.'
+        @exampleCode '''
+          @div class: 'block', =>
+            @button class: 'inline-block-tight btn', 'Do it'
+            @button class: 'inline-block-tight btn', 'Another'
+            @button class: 'inline-block-tight btn', 'OMG again'
+        '''
+
       @section class: 'bordered', 'data-name': 'git', =>
         @h1 class: 'section-heading', 'Git related classes'
         @p => @raw 'Often we need git related classes to specify status.'
