@@ -52,7 +52,7 @@ _.extend View,
 
     @subview '__', editorBlock
 
-    # TODO: maybe take this out. It might not add that much to the docs?
+  # TODO: maybe take this out. It might not add that much to the docs?
   exampleOverlaySelectList: (array) ->
     selectList = new OverlaySelectListView array, (item) ->
       $$ ->
