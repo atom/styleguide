@@ -222,6 +222,21 @@ class UIDemoView extends ScrollView
               @div class: "panel-body padded", 'Some Content'
         '''
 
+        @h2 'With buttons in the heading'
+        @exampleCode '''
+          @div class: "tool-panel panel-bottom padded", =>
+            @div class: "inset-panel", =>
+              @div class: "panel-heading", =>
+                @div class: 'btn-toolbar pull-right', =>
+                  @div class: 'btn-group', =>
+                    @button class: 'btn', 'Group Button'
+                    @button class: 'btn', 'Second Group Button'
+                  @button class: 'btn', 'A button'
+                  @button class: 'btn selected', 'Selected'
+                @span 'An inset-panel heading'
+              @div class: "panel-body padded", 'Some Content'
+        '''
+
       @section class: 'bordered', 'data-name': 'list-group', =>
         @h1 class: 'section-heading', 'List Group'
         @p 'Use for anything that requires a list.'
