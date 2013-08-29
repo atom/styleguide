@@ -40,23 +40,19 @@ class UIDemoView extends ScrollView
 
         @h2 'highlight-* classes'
         @exampleCode '''
-          @span 'Normal text, '
-          @span class: 'highlight', 'Highlighted'
-          @span ' '
-          @span class: 'highlight-info', 'Info'
-          @span ' '
-          @span class: 'highlight-success', 'Success'
-          @span ' '
-          @span class: 'highlight-warning', 'Warning'
-          @span ' '
-          @span class: 'highlight-error', 'Error'
+          @span class: 'inline-block', 'Normal text'
+          @span class: 'inline-block highlight', 'Highlighted'
+          @span class: 'inline-block highlight-info', 'Info'
+          @span class: 'inline-block highlight-success', 'Success'
+          @span class: 'inline-block highlight-warning', 'Warning'
+          @span class: 'inline-block highlight-error', 'Error'
         '''
 
       @section class: 'bordered', 'data-name': 'layout', =>
         @h1 class: 'section-heading', 'Layout classes'
         @p => @raw 'A few things that might be useful for general layout.'
 
-        @h2 'block'
+        @h2 '.block'
         @p 'Sometimes you need to separate components vertically. Say in a form.'
         @exampleCode '''
           @div class: 'block', =>
@@ -110,11 +106,11 @@ class UIDemoView extends ScrollView
 
         @h2 'status-* classes with related icons'
         @exampleCode '''
-          @span class: 'status-ignored icon icon-diff-ignored', ''
-          @span class: 'status-added icon icon-diff-added', ''
-          @span class: 'status-modified icon icon-diff-modified', ''
-          @span class: 'status-removed icon icon-diff-removed', ''
-          @span class: 'status-renamed icon icon-diff-renamed', ''
+          @span class: 'inline-block status-ignored icon icon-diff-ignored', ''
+          @span class: 'inline-block status-added icon icon-diff-added', ''
+          @span class: 'inline-block status-modified icon icon-diff-modified', ''
+          @span class: 'inline-block status-removed icon icon-diff-removed', ''
+          @span class: 'inline-block status-renamed icon icon-diff-renamed', ''
         '''
 
       @section class: 'bordered', 'data-name': 'buttons', =>
@@ -186,7 +182,6 @@ class UIDemoView extends ScrollView
               @button class: 'btn', 'Three'
         '''
 
-      ###
       @section class: 'bordered', 'data-name': 'tool-panel', =>
         @h1 class: 'section-heading', 'Tool Panel'
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
