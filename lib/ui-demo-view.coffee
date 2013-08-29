@@ -51,6 +51,24 @@ class UIDemoView extends ScrollView
           @span ' '
           @span class: 'highlight-error', 'Error'
         '''
+
+      @section class: 'bordered', 'data-name': 'layout', =>
+        @h1 class: 'section-heading', 'Layout classes'
+        @p => @raw 'A few things that might be useful for general layout.'
+
+        @h2 'block'
+        @p 'Sometimes you need to separate components vertically. Say in a form.'
+        @exampleCode '''
+          @div class: 'block', =>
+            @label 'You might want to type something here.'
+            @div class: 'editor mini editor-colors', 'Something you typed...'
+          @div class: 'block', =>
+            @label 'Another field'
+            @div class: 'editor mini editor-colors', 'Something else you typed...'
+          @div class: 'block', =>
+            @button class: 'btn', 'Do it'
+        '''
+
       @section class: 'bordered', 'data-name': 'git', =>
         @h1 class: 'section-heading', 'Git related classes'
         @p => @raw 'Often we need git related classes to specify status.'
@@ -71,6 +89,63 @@ class UIDemoView extends ScrollView
           @span class: 'status-modified icon icon-diff-modified', ''
           @span class: 'status-removed icon icon-diff-removed', ''
           @span class: 'status-renamed icon icon-diff-renamed', ''
+        '''
+
+      @section class: 'bordered', 'data-name': 'buttons', =>
+        @h1 class: 'section-heading', 'Buttons'
+        @p => @raw 'Buttons are similar to bootstrap buttons'
+
+        @h2 'Standalone buttons'
+        @exampleCode '''
+          @p =>
+            @button class: 'btn', 'Button'
+          @p =>
+            @button class: 'btn btn-sm', 'Small Button'
+          @p =>
+            @button class: 'btn btn-lg', 'Large Button'
+        '''
+
+        @h2 'Button Groups'
+        @exampleCode '''
+          @div =>
+            @div class: 'btn-group', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+          @div =>
+            @div class: 'btn-group btn-group-sm', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+          @div =>
+            @div class: 'btn-group btn-group-lg', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+        '''
+
+        @h2 'Button Toggle Groups'
+        @exampleCode '''
+          @div =>
+            @div class: 'btn-group btn-group-toggle', =>
+              @button class: 'btn selected', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+          @div =>
+            @div class: 'btn-group btn-group-toggle', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn selected', 'Two'
+              @button class: 'btn', 'Three'
+          @div =>
+            @div class: 'btn-group btn-group-toggle', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn selected', 'Three'
+          @div =>
+            @div class: 'btn-group btn-group-toggle', =>
+              @button class: 'btn selected', 'One'
+              @button class: 'btn selected', 'Two'
+              @button class: 'btn', 'Three'
         '''
 
       @section class: 'bordered', 'data-name': 'tool-panel', =>
@@ -290,6 +365,23 @@ class UIDemoView extends ScrollView
             @div class: 'loading', =>
               @span class: 'loading-message', 'Chill, bro. Things are loading.'
               @span class: 'badge', '1234'
+        '''
+
+      @section class: 'bordered', 'data-name': 'popover-list', =>
+        @h1 class: 'section-heading', 'Popover List'
+        @p => @raw '''
+          A <code>.popover-list</code> is a <code>.select-list</code> that
+          is meant to popover the code for something like autocomplete.
+        '''
+
+        @h2 'Basic example with one item selected'
+        @exampleCode '''
+          @div class: 'select-list popover-list', =>
+            @div class: 'editor mini editor-colors', 'User types here..'
+            @ol class: 'list-group', =>
+              @li class: 'selected', 'one'
+              @li 'two'
+              @li 'three'
         '''
 
       @section class: 'bordered', 'data-name': 'error-messages', =>
