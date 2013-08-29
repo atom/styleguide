@@ -121,6 +121,29 @@ class UIDemoView extends ScrollView
             @button class: 'btn btn-lg', 'Large Button'
         '''
 
+        @h2 'Colored buttons'
+        @exampleCode '''
+          @div class: 'block', =>
+            @button class: 'btn btn-primary inline-block-tight', 'Primary'
+            @button class: 'btn btn-primary selected inline-block-tight', 'Selected Primary'
+
+          @div class: 'block', =>
+            @button class: 'btn btn-info inline-block-tight', 'Info'
+            @button class: 'btn btn-info selected inline-block-tight', 'Selected Info'
+
+          @div class: 'block', =>
+            @button class: 'btn btn-success inline-block-tight', 'Success'
+            @button class: 'btn btn-success selected inline-block-tight', 'Selected Success'
+
+          @div class: 'block', =>
+            @button class: 'btn btn-warning inline-block-tight', 'Warning'
+            @button class: 'btn btn-warning selected inline-block-tight', 'Selected Warning'
+
+          @div class: 'block', =>
+            @button class: 'btn btn-error inline-block-tight', 'Error'
+            @button class: 'btn btn-error selected inline-block-tight', 'Selected Error'
+        '''
+
         @h2 'Button Groups'
         @exampleCode '''
           @div class: 'block', =>
