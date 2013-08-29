@@ -35,29 +35,20 @@ _.extend View,
         @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
   colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
-    # FIXME: this is editor abuse. I just want the tokenized html.
-    editor = new Editor(mini: true)
-    editor.setText(code)
-
     editorBlock = $$ ->
-      @div class: cssClass+' editor mini', ''
+      @pre class: cssClass+' editor-colors editor', ''
 
-    refreshHtml = (timeout) ->
-      fn = ->
-        html = editor.htmlForScreenRows(0, editor.getLineCount()-1)
-        editorBlock.html(html)
-      # FIXME: does not colorize without the timeout...
-      if timeout then setTimeout(fn, 10) else fn()
-    refreshHtml() # initially set the null-grammar'd code
+    refreshHtml = (grammar) ->
+      editorBlock.empty()
+      for tokens in grammar.tokenizeLines(code)
+        editorBlock.append(Editor.buildLineHtml({tokens, text: code}))
 
     if grammar = syntax.grammarForScopeName(grammarScopeName)
-      editor.setGrammar(grammar)
-      refreshHtml(true)
+      refreshHtml(grammar)
     else
       syntax.on 'grammar-added grammar-updated', (grammar) ->
         return unless grammar.scopeName == grammarScopeName
-        editor.setGrammar(grammar)
-        refreshHtml(true)
+        refreshHtml(grammar)
 
     @subview '__', editorBlock
 
