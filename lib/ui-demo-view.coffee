@@ -157,6 +157,20 @@ class UIDemoView extends ScrollView
               @button class: 'btn', 'Three'
         '''
 
+        @h2 'Button Toolbars'
+        @exampleCode '''
+          @div class: 'btn-toolbar', =>
+            @div class: 'btn-group', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+            @div class: 'btn-group', =>
+              @button class: 'btn', 'Four'
+              @button class: 'btn', 'Five'
+            @button class: 'btn', 'Six'
+            @button class: 'btn', 'Seven'
+        '''
+
         @h2 'Selected buttons'
         @p => @raw 'Buttons can be marked selected by adding a <code>.selected</code> class. Useful for toggle groups.'
         @exampleCode '''
