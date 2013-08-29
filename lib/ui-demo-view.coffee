@@ -1,11 +1,8 @@
 $ = require 'jquery'
-_ = require 'underscore'
-{$$, $$$} = require 'space-pen'
 ScrollView = require 'scroll-view'
-Editor = require 'editor'
-OverlaySelectListView = require './overlay-select-list-view'
-coffee = require 'coffee-script'
-beautifyHtml = require('js-beautify').html
+
+require './space-pen-extensions'
+ExampleSection = require './example-section'
 
 URI = 'atom://ui-demo'
 
@@ -18,12 +15,10 @@ class UIDemoView extends ScrollView
   @content: ->
     @div class: 'ui-demo padded', tabindex: -1, =>
 
-      @section class: 'bordered', 'data-name': 'ui-demo', =>
-        @h1 class: 'section-heading', 'UI Demo'
+      @exampleSection 'ui-demo', 'UI Demo', ->
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
 
-      @section class: 'bordered', 'data-name': 'text', =>
-        @h1 class: 'section-heading', 'Text classes'
+      @exampleSection 'text', 'Text classes', ->
         @p => @raw 'There are a number of text classes.'
 
         @h2 'text-* classes'
@@ -48,8 +43,7 @@ class UIDemoView extends ScrollView
           @span class: 'inline-block highlight-error', 'Error'
         '''
 
-      @section class: 'bordered', 'data-name': 'layout', =>
-        @h1 class: 'section-heading', 'Layout classes'
+      @exampleSection 'layout', 'Layout classes', ->
         @p => @raw 'A few things that might be useful for general layout.'
 
         @h2 '.block'
@@ -91,8 +85,7 @@ class UIDemoView extends ScrollView
             @button class: 'inline-block-tight btn', 'OMG again'
         '''
 
-      @section class: 'bordered', 'data-name': 'git', =>
-        @h1 class: 'section-heading', 'Git related classes'
+      @exampleSection 'git', 'Git related classes', ->
         @p => @raw 'Often we need git related classes to specify status.'
 
         @h2 'status-* classes'
@@ -113,8 +106,7 @@ class UIDemoView extends ScrollView
           @span class: 'inline-block status-renamed icon icon-diff-renamed', ''
         '''
 
-      @section class: 'bordered', 'data-name': 'buttons', =>
-        @h1 class: 'section-heading', 'Buttons'
+      @exampleSection 'buttons', 'Buttons', ->
         @p => @raw 'Buttons are similar to bootstrap buttons'
 
         @h2 'Standalone buttons'
@@ -196,8 +188,7 @@ class UIDemoView extends ScrollView
               @button class: 'btn', 'Three'
         '''
 
-      @section class: 'bordered', 'data-name': 'tool-panel', =>
-        @h1 class: 'section-heading', 'Tool Panel'
+      @exampleSection 'tool-panel', 'Tool Panel', ->
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
         @exampleCode '''
           @div class: 'tool-panel panel-bottom padded', =>
@@ -205,8 +196,7 @@ class UIDemoView extends ScrollView
         '''
         @p => @raw 'Supports <code>.panel-bottom</code> and <code>.panel-left</code> classes.'
 
-      @section class: 'bordered', 'data-name': 'inset-panel', =>
-        @h1 class: 'section-heading', 'Inset Panel'
+      @exampleSection 'inset-panel', 'Inset Panel', ->
         @p => @raw 'Use inside another panel, like a <code>.tool-panel</code>.'
         @h2 'Without a heading'
         @exampleCode '''
@@ -237,8 +227,7 @@ class UIDemoView extends ScrollView
               @div class: "panel-body padded", 'Some Content'
         '''
 
-      @section class: 'bordered', 'data-name': 'list-group', =>
-        @h1 class: 'section-heading', 'List Group'
+      @exampleSection 'list-group', 'List Group', ->
         @p 'Use for anything that requires a list.'
         @exampleCode '''
           @ul class: 'list-group', =>
@@ -291,8 +280,7 @@ class UIDemoView extends ScrollView
                     @span class: 'icon icon-book', 'With icon-book'
         '''
 
-      @section class: 'bordered', 'data-name': 'list-tree', =>
-        @h1 class: 'section-heading', 'List Tree'
+      @exampleSection 'list-tree', 'List Tree', ->
         @p => @raw 'A <code>.list-tree</code> is a special case of <code>.list-group</code>.'
         @p => @raw '<code>.list-tree.has-collapsable-children</code> gives the children with nested items disclosure arrows.'
         @exampleCode '''
@@ -323,8 +311,7 @@ class UIDemoView extends ScrollView
               @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
         '''
 
-      @section class: 'bordered', 'data-name': 'overlay', =>
-        @h1 class: 'section-heading', 'Overlays'
+      @exampleSection 'overlay', 'Overlays', ->
         @p => @raw 'Overlays are like dialog boxes.'
         @p => @raw '''
           Supported classes: <code>.from-top</code>, <code>.from-bottom</code> and <code>.floating</code>.
@@ -335,8 +322,7 @@ class UIDemoView extends ScrollView
             @div 'Some content'
         '''
 
-      @section class: 'bordered', 'data-name': 'select-list', =>
-        @h1 class: 'section-heading', 'Select List'
+      @exampleSection 'select-list', 'Select List', ->
         @p => @raw '''
           You wont be creating a <code>.select-list</code> directly, but will do so
           by extending the <code>SelectList</code> class. Your
@@ -430,8 +416,7 @@ class UIDemoView extends ScrollView
               @span class: 'badge', '1234'
         '''
 
-      @section class: 'bordered', 'data-name': 'popover-list', =>
-        @h1 class: 'section-heading', 'Popover List'
+      @exampleSection 'popover-list', 'Popover List', ->
         @p => @raw '''
           A <code>.popover-list</code> is a <code>.select-list</code> that
           is meant to popover the code for something like autocomplete.
@@ -447,116 +432,25 @@ class UIDemoView extends ScrollView
               @li 'three'
         '''
 
-      @section class: 'bordered', 'data-name': 'error-messages', =>
-        @h1 class: 'section-heading', 'Error messages'
+      @exampleSection 'error-messages', 'Error messages', ->
         @ul class: 'error-messages', outlet: 'errorMessages'
 
-      @section class: 'bordered', 'data-name': 'loading-spinners', =>
-        @h1 class: 'section-heading', 'Loading spinners'
+      @exampleSection 'loading-spinners', 'Loading spinners', ->
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
-
-  @exampleCode: (spacePenCoffee) =>
-
-    # I need to pass the proper context to the spacepen functions, so I return
-    # a fn, which I will apply after eval'ing. Magic!
-    wrappedCode = """
-      evaluator = ->
-      #{('  '+line for line in spacePenCoffee.split('\n')).join('\n')}
-      evaluator
-    """
-
-    # FIXME: Is this the best way to grab the html from spacepen?
-    html = $$$ ->
-      coffee.eval(wrappedCode).apply(this)
-
-    @div class: 'example', =>
-      @div class: 'example-rendered', =>
-        @raw html
-
-      @div class: 'example-code show-example-space-pen', =>
-        @div class: 'btn-group btn-group-xs btn-toggle', =>
-          @button class: 'btn selected', 'data-display-class': 'show-example-space-pen', 'space-pen'
-          @button class: 'btn', 'data-display-class': 'show-example-html', 'html'
-        @colorizedCodeBlock 'example-space-pen', 'source.coffee', spacePenCoffee
-        @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
-
-  @colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
-    # FIXME: this is editor abuse. I just want the tokenized html.
-    editor = new Editor(mini: true)
-    editor.setText(code)
-
-    editorBlock = $$ ->
-      @div class: cssClass+' editor mini', ''
-
-    refreshHtml = (timeout) ->
-      fn = ->
-        html = editor.htmlForScreenRows(0, editor.getLineCount()-1)
-        editorBlock.html(html)
-      # FIXME: does not colorize without the timeout...
-      if timeout then setTimeout(fn, 10) else fn()
-    refreshHtml() # initially set the null-grammar'd code
-
-    if grammar = syntax.grammarForScopeName(grammarScopeName)
-      editor.setGrammar(grammar)
-      refreshHtml(true)
-    else
-      syntax.on 'grammar-added grammar-updated', (grammar) ->
-        return unless grammar.scopeName == grammarScopeName
-        editor.setGrammar(grammar)
-        refreshHtml(true)
-
-    @subview '__', editorBlock
-
-  # TODO: maybe take this out. It might not add that much to the docs?
-  @exampleOverlaySelectList: (array) ->
-    selectList = new OverlaySelectListView array, (item) ->
-      $$ ->
-        @li =>
-          @raw item
-
-    html = $('<div/>').append(selectList).html()
-
-    coffeeScript = """
-      class OverlaySelectListView extends SelectList
-        @viewClass: ->
-          "\#{super} overlay from-top"
-
-        initialize: (@listOfItems) ->
-          super
-          @setArray(@listOfItems)
-
-        attach: ->
-          super
-          @appendTo(rootView)
-          @miniEditor.focus()
-
-        # Here you specify the list items
-        itemForElement: (item) ->
-          $$ ->
-            @li =>
-              @raw item
-
-      view = new OverlaySelectListView([#{array}])
-      view.attach()
-    """
-
-    @div class: 'example', =>
-      @div class: 'example-rendered', =>
-        @subview '__', selectList
-      @div class: 'example-code show-example-space-pen', =>
-        @div class: 'btn-group btn-group-xs btn-toggle', =>
-          @button class: 'btn selected', 'data-display-class': 'show-example-space-pen', 'space-pen'
-          @button class: 'btn', 'data-display-class': 'show-example-html', 'html'
-        @colorizedCodeBlock 'example-space-pen', 'source.coffee', coffeeScript
-        @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
-
 
   @deserialize: (options={}) ->
     new UIDemoView(options)
 
+  # sections are lazyloaded for speedup when reloading the app. I often am
+  # editing just one section, and dont need to load the rest. When the user
+  # clicks to expand a section, it will load said section.
+  @exampleSections: {}
+  @exampleSection: (name, title, buildFn) ->
+    @exampleSections[name] = ExampleSection.build(this, name, title, buildFn)
+
   initialize: ({collapsedSections}={}) ->
     @on 'click', '.section-heading', ->
-      $(this).parent().toggleClass('collapsed')
+      UIDemoView.exampleSections[$(this).parent().attr('data-name')].toggle()
 
     @on 'click', '.example-code .btn-group .btn', ->
       btn = $(this)
@@ -569,6 +463,7 @@ class UIDemoView extends ScrollView
 
       btn.addClass('selected')
 
+    @append(section.el) for __, section of UIDemoView.exampleSections
     @setCollapsedSections(collapsedSections)
 
   serialize: ->
@@ -583,11 +478,9 @@ class UIDemoView extends ScrollView
     $(sec).attr('data-name') for sec in @find('section.collapsed')
 
   setCollapsedSections: (collapsedSections=[]) ->
-    for section in collapsedSections
-      @find("[data-name=\"#{section}\"]").addClass('collapsed')
+    for name, section of UIDemoView.exampleSections
+      section.expand() if name not in collapsedSections
     null
 
   isEqual: (other) ->
     other instanceof UIDemoView
-
-
