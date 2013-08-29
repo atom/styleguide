@@ -97,57 +97,70 @@ class UIDemoView extends ScrollView
 
         @h2 'Standalone buttons'
         @exampleCode '''
-          @p =>
+          @div class: 'block', =>
             @button class: 'btn', 'Button'
-          @p =>
+          @div class: 'block', =>
+            @button class: 'btn btn-xs', 'Extra Small Button'
+          @div class: 'block', =>
             @button class: 'btn btn-sm', 'Small Button'
-          @p =>
+          @div class: 'block', =>
             @button class: 'btn btn-lg', 'Large Button'
         '''
 
         @h2 'Button Groups'
         @exampleCode '''
-          @div =>
+          @div class: 'block', =>
+            @div 'Normal size'
             @div class: 'btn-group', =>
               @button class: 'btn', 'One'
               @button class: 'btn', 'Two'
               @button class: 'btn', 'Three'
-          @div =>
+          @div class: 'block', =>
+            @div 'Extra Small'
+            @div class: 'btn-group btn-group-xs', =>
+              @button class: 'btn', 'One'
+              @button class: 'btn', 'Two'
+              @button class: 'btn', 'Three'
+          @div class: 'block', =>
+            @div 'Small'
             @div class: 'btn-group btn-group-sm', =>
               @button class: 'btn', 'One'
               @button class: 'btn', 'Two'
               @button class: 'btn', 'Three'
-          @div =>
+          @div class: 'block', =>
+            @div 'Large'
             @div class: 'btn-group btn-group-lg', =>
               @button class: 'btn', 'One'
               @button class: 'btn', 'Two'
               @button class: 'btn', 'Three'
         '''
 
-        @h2 'Button Toggle Groups'
+        @h2 'Selected buttons'
+        @p => @raw 'Buttons can be marked selected by adding a <code>.selected</code> class. Useful for toggle groups.'
         @exampleCode '''
-          @div =>
-            @div class: 'btn-group btn-group-toggle', =>
+          @div class: 'block', =>
+            @div class: 'btn-group', =>
               @button class: 'btn selected', 'One'
               @button class: 'btn', 'Two'
               @button class: 'btn', 'Three'
-          @div =>
-            @div class: 'btn-group btn-group-toggle', =>
+          @div class: 'block', =>
+            @div class: 'btn-group', =>
               @button class: 'btn', 'One'
               @button class: 'btn selected', 'Two'
               @button class: 'btn', 'Three'
-          @div =>
-            @div class: 'btn-group btn-group-toggle', =>
+          @div class: 'block', =>
+            @div class: 'btn-group', =>
               @button class: 'btn', 'One'
               @button class: 'btn', 'Two'
               @button class: 'btn selected', 'Three'
-          @div =>
-            @div class: 'btn-group btn-group-toggle', =>
+          @div class: 'block', =>
+            @div class: 'btn-group', =>
               @button class: 'btn selected', 'One'
               @button class: 'btn selected', 'Two'
               @button class: 'btn', 'Three'
         '''
 
+      ###
       @section class: 'bordered', 'data-name': 'tool-panel', =>
         @h1 class: 'section-heading', 'Tool Panel'
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
