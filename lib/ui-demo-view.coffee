@@ -106,6 +106,26 @@ class UIDemoView extends ScrollView
           @span class: 'inline-block status-renamed icon icon-diff-renamed', ''
         '''
 
+      @exampleSection 'site-highlight', 'Site colors', ->
+        @p => @raw 'Site colors are used for collaboration. A site is another collaborator.'
+
+        @h2 'ui-site-* classes'
+        @p => @raw '''
+          These classes only set the background color, no other styles.
+          You can also use LESS variables <code>@ui-site-#</code> in your plugins where
+          <code>#</code> is a number between 1 and 5.
+        '''
+        @p => @raw '''
+          Site colors will always be in the color progression you see here.
+        '''
+        @exampleCode '''
+          @div class: 'block ui-site-1'
+          @div class: 'block ui-site-2'
+          @div class: 'block ui-site-3'
+          @div class: 'block ui-site-4'
+          @div class: 'block ui-site-5'
+        '''
+
       @exampleSection 'buttons', 'Buttons', ->
         @p => @raw 'Buttons are similar to bootstrap buttons'
 
