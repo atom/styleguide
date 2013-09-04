@@ -1,7 +1,6 @@
 {
   "main": "./lib/ui-demo",
   "version": "0.1.0",
-  "main": "./lib/ui-demo",
   "description": "A demo of all the UI CSS components.",
   "repository": {
     "type": "git",
