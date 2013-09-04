@@ -1,4 +1,3 @@
-$ = require 'jquery'
 Project = require 'project'
 UIDemoView = require './ui-demo-view'
 
