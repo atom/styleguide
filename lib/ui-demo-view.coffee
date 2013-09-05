@@ -53,7 +53,7 @@ class UIDemoView extends ScrollView
             @label 'You might want to type something here.'
             @div class: 'editor mini editor-colors', 'Something you typed...'
           @div class: 'block', =>
-            @label 'Another field'
+            @label class: 'icon icon-file-directory', 'Another field with an icon'
             @div class: 'editor mini editor-colors', 'Something else you typed...'
           @div class: 'block', =>
             @button class: 'btn', 'Do it'
