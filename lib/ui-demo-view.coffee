@@ -401,6 +401,24 @@ class UIDemoView extends ScrollView
               @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
         '''
 
+        @h2 'With disclosure arrows at only one level.'
+        @p => @raw 'Add the class <code>.has-flat-children</code> to sub-<code>.list-tree</code>s to indicate that the children will not be collapsable.'
+        @exampleCode '''
+          @ul class: 'list-tree has-collapsable-children ', =>
+            @li class: 'list-nested-item', =>
+              @div class: 'list-item', =>
+                @span class: 'icon icon-file-text', 'This is a collapsable section'
+              @ul class: 'list-tree has-flat-children', =>
+                @li class: 'list-item', 'Something is here'
+                @li class: 'list-item selected', 'Something .selected'
+            @li class: 'list-nested-item', =>
+              @div class: 'list-item', =>
+                @span class: 'icon icon-file-directory', 'Another collapsable section'
+              @ul class: 'list-tree has-flat-children', =>
+                @li class: 'list-item', 'Something is here'
+                @li class: 'list-item', 'Something else'
+        '''
+
       @exampleSection 'overlay', 'Overlays', ->
         @p => @raw 'Overlays are like dialog boxes.'
         @p => @raw '''
