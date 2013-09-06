@@ -231,6 +231,16 @@ class UIDemoView extends ScrollView
               @button class: 'btn', 'Three'
         '''
 
+      @exampleSection 'panels', 'Panels', ->
+        @p => @raw 'Useful when you want a block of content with a heading.'
+
+        @h2 'With a heading'
+        @exampleCode '''
+          @div class: "panel", =>
+            @div class: "panel-heading", 'A .panel heading'
+            @div class: "panel-body padded", 'Some Content goes here. I am padded!'
+        '''
+
       @exampleSection 'tool-panel', 'Tool Panel', ->
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
         @exampleCode '''
