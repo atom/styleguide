@@ -325,7 +325,36 @@ class UIDemoView extends ScrollView
 
       @exampleSection 'list-tree', 'List Tree', ->
         @p => @raw 'A <code>.list-tree</code> is a special case of <code>.list-group</code>.'
-        @p => @raw '<code>.list-tree.has-collapsable-children</code> gives the children with nested items disclosure arrows.'
+        @exampleCode '''
+          @ul class: 'list-tree', =>
+            @li class: 'list-nested-item', =>
+              @div class: 'list-item', =>
+                @span class: 'icon icon-file-directory', 'A Directory'
+              @ul class: 'list-tree', =>
+                @li class: 'list-nested-item', =>
+                  @div class: 'list-item', =>
+                    @span class: 'icon icon-file-directory', 'Nested Directory'
+                  @ul class: 'list-tree', =>
+                    @li class: 'list-item', =>
+                      @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-nested-item collapsed', =>
+                  @div class: 'list-item', =>
+                    @span class: 'icon icon-file-directory', 'Collpased Nested Directory'
+                  @ul class: 'list-tree', =>
+                    @li class: 'list-item', =>
+                      @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-item', =>
+                  @span class: 'icon icon-file-text', 'File one'
+                @li class: 'list-item selected', =>
+                  @span class: 'icon icon-file-text', 'File three .selected!'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-text', '.icon-file-text'
+            @li class: 'list-item', =>
+              @span class: 'icon icon-file-symlink-file', '.icon-file-symlink-file'
+        '''
+
+        @h2 'With disclosure arrows'
+        @p => @raw 'Add the class <code>.has-collapsable-children</code> to give the children with nested items disclosure arrows.'
         @exampleCode '''
           @ul class: 'list-tree has-collapsable-children', =>
             @li class: 'list-nested-item', =>
