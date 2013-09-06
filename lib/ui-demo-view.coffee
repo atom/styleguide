@@ -13,7 +13,7 @@ class UIDemoView extends ScrollView
   @URI: URI
 
   @content: ->
-    @div class: 'ui-demo padded', tabindex: -1, =>
+    @div class: 'ui-demo padded pane-item', tabindex: -1, =>
 
       @exampleSection 'ui-demo', 'UI Demo', ->
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
