@@ -241,6 +241,14 @@ class UIDemoView extends ScrollView
             @div class: "panel-body padded", 'Some Content goes here. I am padded!'
         '''
 
+        @h2 'Bordered with a heading'
+        @p => @raw 'You can add the class <code>.bordered</code> to the panel to add a border.'
+        @exampleCode '''
+          @div class: "panel bordered", =>
+            @div class: "panel-heading", 'A .panel heading'
+            @div class: "panel-body padded", 'Some Content goes here. I am padded!'
+        '''
+
       @exampleSection 'tool-panel', 'Tool Panel', ->
         @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
         @exampleCode '''
