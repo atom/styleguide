@@ -1,11 +1,7 @@
-$ = require 'jquery'
-_ = require 'underscore'
-{View, $$, $$$} = require 'space-pen'
+{_, $, $$, $$$, Editor, View} = require 'atom-api'
 
 coffee = require 'coffee-script'
 beautifyHtml = require('js-beautify').html
-
-Editor = require 'editor'
 
 OverlaySelectListView = require './overlay-select-list-view'
 
