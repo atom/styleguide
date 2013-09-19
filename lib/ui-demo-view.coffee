@@ -1,4 +1,4 @@
-{$, ScrollView} = require 'atom-api'
+{$, ScrollView} = require 'atom'
 
 require './space-pen-extensions'
 ExampleSection = require './example-section'

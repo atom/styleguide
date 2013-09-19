@@ -1,4 +1,4 @@
-{$$} = require 'atom-api'
+{$$} = require 'atom'
 
 module.exports =
 class ExampleSection
