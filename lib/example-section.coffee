@@ -1,4 +1,4 @@
-{$$} = require 'space-pen'
+{$$} = require 'atom'
 
 module.exports =
 class ExampleSection

@@ -1,5 +1,4 @@
-$ = require 'jquery'
-ScrollView = require 'scroll-view'
+{$, ScrollView} = require 'atom'
 
 require './space-pen-extensions'
 ExampleSection = require './example-section'
