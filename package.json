@@ -8,7 +8,8 @@
     "url": "https://github.com/atom/ui-demo.git"
   },
   "dependencies": {
-    "js-beautify": "~1.4.x"
+    "js-beautify": "~1.4.x",
+    "coffee-script": "~1.6.3"
   },
   "bugs": {
     "url": "https://github.com/atom/ui-demo/issues"
