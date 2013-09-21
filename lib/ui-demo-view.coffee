@@ -3,14 +3,8 @@
 require './space-pen-extensions'
 ExampleSection = require './example-section'
 
-URI = 'atom://ui-demo'
-
 module.exports =
 class UIDemoView extends ScrollView
-  registerDeserializer(this)
-
-  @URI: URI
-
   @content: ->
     @div class: 'ui-demo padded pane-item', tabindex: -1, =>
 
@@ -555,7 +549,7 @@ class UIDemoView extends ScrollView
   @exampleSection: (name, title, buildFn) ->
     @exampleSections[name] = ExampleSection.build(this, name, title, buildFn)
 
-  initialize: ({collapsedSections}={}) ->
+  initialize: ({@uri, collapsedSections}={}) ->
     @on 'click', '.section-heading', ->
       UIDemoView.exampleSections[$(this).parent().attr('data-name')].toggle()
 
@@ -574,10 +568,11 @@ class UIDemoView extends ScrollView
     @setCollapsedSections(collapsedSections)
 
   serialize: ->
-    deserializer: 'UIDemoView'
+    deserializer: @constructor.name
     collapsedSections: @getCollapsedSections()
+    uri: @getUri()
 
-  getUri: -> URI
+  getUri: -> @uri
 
   getTitle: -> "UI Demo"
 
