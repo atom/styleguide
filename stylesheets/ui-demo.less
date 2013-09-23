@@ -1,6 +1,8 @@
 @import "ui-variables";
 
 .ui-demo {
+  position: relative;
+
   section.collapsed {
     opacity: .6;
     padding-top: @component-padding;
@@ -29,12 +31,24 @@
     }
   }
 
+  section[data-name="ui-demo"] {
+    border-top: none;
+    padding-top: 0;
+  }
+
   .overlay, .popover-list {
     position: relative;
   }
 
   .select-list, .popover-list {
     .editor.mini { height: 27px; }
+  }
+
+  .btn-collapse-all {
+    position: absolute;
+    right: @component-padding;
+    top: @component-padding;
+    z-index: 100;
   }
 }
 

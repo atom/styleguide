@@ -7,6 +7,7 @@ module.exports =
 class UIDemoView extends ScrollView
   @content: ->
     @div class: 'ui-demo padded pane-item', tabindex: -1, =>
+      @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
 
       @exampleSection 'ui-demo', 'UI Demo', ->
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
@@ -564,6 +565,8 @@ class UIDemoView extends ScrollView
 
       btn.addClass('selected')
 
+    @collapseAllButton.click(@collapseAllSections)
+
     @append(section.el) for __, section of UIDemoView.exampleSections
     @setCollapsedSections(collapsedSections)
 
@@ -575,6 +578,11 @@ class UIDemoView extends ScrollView
   getUri: -> @uri
 
   getTitle: -> "UI Demo"
+
+  collapseAllSections: =>
+    for name, section of UIDemoView.exampleSections
+      continue if name == 'ui-demo'
+      section.collapse()
 
   getCollapsedSections: ->
     $(sec).attr('data-name') for sec in @find('section.collapsed')
