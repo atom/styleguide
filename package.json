@@ -1,18 +1,18 @@
 {
-  "name": "ui-demo",
-  "main": "./lib/ui-demo",
+  "name": "styleguide",
+  "main": "./lib/styleguide",
   "version": "0.8.0",
   "description": "A demo of all the UI CSS components.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/ui-demo.git"
+    "url": "https://github.com/atom/styleguide.git"
   },
   "dependencies": {
     "js-beautify": "~1.4.x",
     "coffee-script": "~1.6.3"
   },
   "bugs": {
-    "url": "https://github.com/atom/ui-demo/issues"
+    "url": "https://github.com/atom/styleguide/issues"
   },
   "engines": {
     "atom": "*"
