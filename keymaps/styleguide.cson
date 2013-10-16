@@ -1,5 +1,5 @@
 'body':
-  'meta-ctrl-D': 'styleguide:show'
+  'meta-ctrl-G': 'styleguide:show'
 
 '.styleguide':
   'meta-x': 'native!'
