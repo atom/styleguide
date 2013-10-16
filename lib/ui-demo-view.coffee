@@ -6,10 +6,10 @@ ExampleSection = require './example-section'
 module.exports =
 class UIDemoView extends ScrollView
   @content: ->
-    @div class: 'ui-demo padded pane-item', tabindex: -1, =>
+    @div class: 'styleguide padded pane-item', tabindex: -1, =>
       @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
 
-      @exampleSection 'ui-demo', 'UI Demo', ->
+      @exampleSection 'styleguide', 'UI Demo', ->
         @p 'This plugin exercises all UI components and acts as a sort of style guide.'
 
       @exampleSection 'text', 'Text classes', ->
@@ -581,7 +581,7 @@ class UIDemoView extends ScrollView
 
   collapseAllSections: =>
     for name, section of UIDemoView.exampleSections
-      continue if name == 'ui-demo'
+      continue if name == 'styleguide'
       section.collapse()
 
   getCollapsedSections: ->

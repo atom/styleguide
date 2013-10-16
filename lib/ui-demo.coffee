@@ -1,9 +1,9 @@
 UIDemoView = null
 
-uiDemoUri = 'atom://ui-demo'
+uiDemoUri = 'atom://styleguide'
 
 createUIDemoView = (state) ->
-  UIDemoView ?= require './ui-demo-view'
+  UIDemoView ?= require './styleguide-view'
   new UIDemoView(state)
 
 deserializer =
@@ -16,4 +16,4 @@ module.exports =
     project.registerOpener (filePath) ->
       createUIDemoView(uri: uiDemoUri) if filePath is uiDemoUri
 
-    rootView.command 'ui-demo:show', -> rootView.open(uiDemoUri)
+    rootView.command 'styleguide:show', -> rootView.open(uiDemoUri)
