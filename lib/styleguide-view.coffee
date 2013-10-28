@@ -4,13 +4,13 @@ require './space-pen-extensions'
 ExampleSection = require './example-section'
 
 module.exports =
-class UIDemoView extends ScrollView
+class StyleguideView extends ScrollView
   @content: ->
     @div class: 'styleguide padded pane-item', tabindex: -1, =>
       @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
 
-      @exampleSection 'styleguide', 'UI Demo', ->
-        @p 'This plugin exercises all UI components and acts as a sort of style guide.'
+      @exampleSection 'styleguide', 'Styleguide', ->
+        @p 'This exercises all UI components and acts as a styleguide.'
 
       @exampleSection 'text', 'Text classes', ->
         @p => @raw 'There are a number of text classes.'
@@ -244,7 +244,7 @@ class UIDemoView extends ScrollView
         '''
 
       @exampleSection 'tool-panel', 'Tool Panel', ->
-        @p 'A container attached to some side of the Atom UI. This UI Demo is in a tool panel.'
+        @p 'A container attached to some side of the Atom UI. This styleguide is in a tool panel.'
         @exampleCode '''
           @div class: 'tool-panel panel-bottom padded', =>
             @div 'Some content'
@@ -541,7 +541,7 @@ class UIDemoView extends ScrollView
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
 
   @deserialize: (options={}) ->
-    new UIDemoView(options)
+    new StyleguideView(options)
 
   # sections are lazyloaded for speedup when reloading the app. I often am
   # editing just one section, and dont need to load the rest. When the user
@@ -552,7 +552,7 @@ class UIDemoView extends ScrollView
 
   initialize: ({@uri, collapsedSections}={}) ->
     @on 'click', '.section-heading', ->
-      UIDemoView.exampleSections[$(this).parent().attr('data-name')].toggle()
+      StyleguideView.exampleSections[$(this).parent().attr('data-name')].toggle()
 
     @on 'click', '.example-code .btn-group .btn', ->
       btn = $(this)
@@ -567,7 +567,7 @@ class UIDemoView extends ScrollView
 
     @collapseAllButton.click(@collapseAllSections)
 
-    @append(section.el) for __, section of UIDemoView.exampleSections
+    @append(section.el) for __, section of StyleguideView.exampleSections
     @setCollapsedSections(collapsedSections)
 
   serialize: ->
@@ -577,10 +577,10 @@ class UIDemoView extends ScrollView
 
   getUri: -> @uri
 
-  getTitle: -> "UI Demo"
+  getTitle: -> "Styleguide"
 
   collapseAllSections: =>
-    for name, section of UIDemoView.exampleSections
+    for name, section of StyleguideView.exampleSections
       continue if name == 'styleguide'
       section.collapse()
 
@@ -588,9 +588,9 @@ class UIDemoView extends ScrollView
     $(sec).attr('data-name') for sec in @find('section.collapsed')
 
   setCollapsedSections: (collapsedSections=[]) ->
-    for name, section of UIDemoView.exampleSections
+    for name, section of StyleguideView.exampleSections
       section.expand() if name not in collapsedSections
     null
 
   isEqual: (other) ->
-    other instanceof UIDemoView
+    other instanceof StyleguideView

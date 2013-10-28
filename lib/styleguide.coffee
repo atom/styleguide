@@ -1,19 +1,18 @@
-UIDemoView = null
+StyleguideView = null
+styleguideUri = 'atom://styleguide'
 
-uiDemoUri = 'atom://styleguide'
-
-createUIDemoView = (state) ->
-  UIDemoView ?= require './styleguide-view'
-  new UIDemoView(state)
+createStyleguideView = (state) ->
+  StyleguideView ?= require './styleguide-view'
+  new StyleguideView(state)
 
 deserializer =
-  name: 'UIDemoView'
-  deserialize: (state) -> createUIDemoView(state)
+  name: 'Styleguide'
+  deserialize: (state) -> createStyleguideView(state)
 registerDeserializer(deserializer)
 
 module.exports =
   activate: ->
     project.registerOpener (filePath) ->
-      createUIDemoView(uri: uiDemoUri) if filePath is uiDemoUri
+      createStyleguideView(uri: styleguideUri) if filePath is styleguideUri
 
-    rootView.command 'styleguide:show', -> rootView.open(uiDemoUri)
+    rootView.command 'styleguide:show', -> rootView.open(styleguideUri)
