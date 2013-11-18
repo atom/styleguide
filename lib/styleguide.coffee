@@ -6,7 +6,7 @@ createStyleguideView = (state) ->
   new StyleguideView(state)
 
 deserializer =
-  name: 'Styleguide'
+  name: 'StyleguideView'
   deserialize: (state) -> createStyleguideView(state)
 registerDeserializer(deserializer)
 
