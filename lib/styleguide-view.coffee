@@ -554,8 +554,40 @@ class StyleguideView extends ScrollView
             @li 'Another info line'
         '''
 
-      @exampleSection 'loading-spinners', 'Loading spinners', ->
-        @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
+      @exampleSection 'progress', 'Loading/Progress', ->
+
+        @h2 'Progress Bars'
+        @exampleCode '''
+          @div class: 'block', =>
+            @progress class: 'inline-block'
+            @span class: 'inline-block', 'Indeterminate'
+
+          @div class: 'block', =>
+            @progress class: 'inline-block', max: '100', value: '25'
+            @span class: 'inline-block', 'At 25%'
+
+          @div class: 'block', =>
+            @progress class: 'inline-block', max: '100', value: '50'
+            @span class: 'inline-block', 'At 50%'
+
+          @div class: 'block', =>
+            @progress class: 'inline-block', max: '100', value: '75'
+            @span class: 'inline-block', 'At 75%'
+
+          @div class: 'block', =>
+            @progress class: 'inline-block', max: '100', value: '100'
+            @span class: 'inline-block', 'At 100%'
+        '''
+
+        @h2 'Loading Spinners'
+        @exampleCode '''
+          @span class: 'loading loading-spinner-tiny inline-block'
+          @span class: 'loading loading-spinner-small inline-block'
+          @span class: 'loading loading-spinner-medium inline-block'
+          @span class: 'loading loading-spinner-large inline-block'
+        '''
+
+
 
   @deserialize: (options={}) ->
     new StyleguideView(options)
