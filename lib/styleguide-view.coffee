@@ -534,8 +534,25 @@ class StyleguideView extends ScrollView
               @li 'three'
         '''
 
-      @exampleSection 'error-messages', 'Error messages', ->
-        @ul class: 'error-messages', outlet: 'errorMessages'
+      @exampleSection 'error-messages', 'Messages', ->
+        @p => @raw '''
+          Use to convey info to the user when something happens. See <code>find-and-replace</code>
+          for an example.
+        '''
+
+        @h2 'Error messages'
+        @exampleCode '''
+          @ul outlet: 'errorMessages', class: 'error-messages block', =>
+            @li 'This is an error!'
+            @li 'And another'
+        '''
+
+        @h2 'Info messages'
+        @exampleCode '''
+          @ul outlet: 'infoMessages', class: 'info-messages block', =>
+            @li 'Info line'
+            @li 'Another info line'
+        '''
 
       @exampleSection 'loading-spinners', 'Loading spinners', ->
         @div class: 'loading is-loading pull-center loading-spinner-small', outlet: 'loadingMessage'
