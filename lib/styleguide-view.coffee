@@ -542,14 +542,14 @@ class StyleguideView extends ScrollView
 
         @h2 'Error messages'
         @exampleCode '''
-          @ul outlet: 'errorMessages', class: 'error-messages block', =>
+          @ul class: 'error-messages block', =>
             @li 'This is an error!'
             @li 'And another'
         '''
 
         @h2 'Info messages'
         @exampleCode '''
-          @ul outlet: 'infoMessages', class: 'info-messages block', =>
+          @ul class: 'info-messages block', =>
             @li 'Info line'
             @li 'Another info line'
         '''
