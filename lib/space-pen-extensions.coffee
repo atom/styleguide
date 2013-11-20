@@ -39,7 +39,7 @@ _.extend View,
       for tokens in grammar.tokenizeLines(code)
         editorBlock.append(Editor.buildLineHtml({tokens, text: code}))
 
-    if grammar = syntax.grammarForScopeName(grammarScopeName)
+    if grammar = atom.syntax.grammarForScopeName(grammarScopeName)
       refreshHtml(grammar)
     else
       syntax.on 'grammar-added grammar-updated', (grammar) ->
@@ -68,7 +68,7 @@ _.extend View,
 
         attach: ->
           super
-          @appendTo(rootView)
+          @appendTo(atom.rootView)
           @miniEditor.focus()
 
         # Here you specify the list items

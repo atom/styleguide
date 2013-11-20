@@ -12,7 +12,7 @@ class OverlaySelectListView extends SelectList
 
   attach: ->
     super
-    @appendTo(rootView)
+    @appendTo(atom.rootView)
     @miniEditor.focus()
 
   itemForElement: (item) ->

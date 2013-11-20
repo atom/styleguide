@@ -8,11 +8,11 @@ createStyleguideView = (state) ->
 deserializer =
   name: 'StyleguideView'
   deserialize: (state) -> createStyleguideView(state)
-registerDeserializer(deserializer)
+atom.deserializers.add(deserializer)
 
 module.exports =
   activate: ->
-    project.registerOpener (filePath) ->
+    atom.project.registerOpener (filePath) ->
       createStyleguideView(uri: styleguideUri) if filePath is styleguideUri
 
-    rootView.command 'styleguide:show', -> rootView.open(styleguideUri)
+    atom.rootView.command 'styleguide:show', -> rootView.open(styleguideUri)
