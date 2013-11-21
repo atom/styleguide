@@ -42,7 +42,7 @@ _.extend View,
     if grammar = atom.syntax.grammarForScopeName(grammarScopeName)
       refreshHtml(grammar)
     else
-      syntax.on 'grammar-added grammar-updated', (grammar) ->
+      atom.syntax.on 'grammar-added grammar-updated', (grammar) ->
         return unless grammar.scopeName == grammarScopeName
         refreshHtml(grammar)
 
