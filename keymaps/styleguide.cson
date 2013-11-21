@@ -1,7 +1,15 @@
-'body':
-  'meta-ctrl-G': 'styleguide:show'
+'.platform-darwin':
+  'cmd-ctrl-G': 'styleguide:show'
 
-'.styleguide':
-  'meta-x': 'native!'
-  'meta-c': 'native!'
-  'meta-v': 'native!'
+'.platform-win32':
+  'ctrl-G': 'styleguide:show'
+
+'.platform-darwin .styleguide':
+  'cmd-x': 'native!'
+  'cmd-c': 'native!'
+  'cmd-v': 'native!'
+
+'.platform-win32 .styleguide':
+  'ctrl-x': 'native!'
+  'ctrl-c': 'native!'
+  'ctrl-v': 'native!'
