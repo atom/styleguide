@@ -15,4 +15,4 @@ module.exports =
     atom.project.registerOpener (filePath) ->
       createStyleguideView(uri: styleguideUri) if filePath is styleguideUri
 
-    atom.rootView.command 'styleguide:show', -> rootView.open(styleguideUri)
+    atom.rootView.command 'styleguide:show', -> atom.rootView.open(styleguideUri)
