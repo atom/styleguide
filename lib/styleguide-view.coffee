@@ -534,6 +534,25 @@ class StyleguideView extends ScrollView
               @li 'three'
         '''
 
+      @exampleSection 'tooltips', 'Tooltips', ->
+        @p => @raw '''
+          You do not create the markup directly. You call
+          <code>element.setTooltip(title, {command, commandElement}={})</code>.
+          Passing in a <code>command</code> (like <code>find-and-replace:show-find</code>) and
+          <code>commandElement</code> (context for the command) will yield a tip with a keystroke.
+        '''
+
+        @exampleCode '''
+          @div class: 'tooltip top', =>
+            @div class: 'tooltip-arrow'
+            @div class: 'tooltip-inner', 'This is a message'
+
+          @div class: 'tooltip top', =>
+            @div class: 'tooltip-arrow'
+            @div class: 'tooltip-inner', =>
+              @raw 'With a keystroke <span class="keystroke">cmd-shift-o</span>'
+        '''
+
       @exampleSection 'error-messages', 'Messages', ->
         @p => @raw '''
           Use to convey info to the user when something happens. See <code>find-and-replace</code>
