@@ -1,7 +1,7 @@
 {
   "name": "styleguide",
   "main": "./lib/styleguide",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "description": "A demo of all the UI CSS components.",
   "repository": {
     "type": "git",
