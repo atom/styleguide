@@ -68,7 +68,7 @@ _.extend View,
 
         attach: ->
           super
-          @appendTo(atom.rootView)
+          @appendTo(atom.workspaceView)
           @miniEditor.focus()
 
         # Here you specify the list items
