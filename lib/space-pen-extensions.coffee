@@ -1,4 +1,4 @@
-{_, $, $$, $$$, Editor, View} = require 'atom'
+{_, $, $$, $$$, EditorView, View} = require 'atom'
 
 coffee = require 'coffee-script'
 beautifyHtml = require('js-beautify').html
@@ -37,7 +37,7 @@ _.extend View,
     refreshHtml = (grammar) ->
       editorBlock.empty()
       for tokens in grammar.tokenizeLines(code)
-        editorBlock.append(Editor.buildLineHtml({tokens, text: code}))
+        editorBlock.append(EditorView.buildLineHtml({tokens, text: code}))
 
     if grammar = atom.syntax.grammarForScopeName(grammarScopeName)
       refreshHtml(grammar)
