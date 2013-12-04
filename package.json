@@ -3,21 +3,12 @@
   "main": "./lib/styleguide",
   "version": "0.17.0",
   "description": "A demo of all the UI CSS components.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/atom/styleguide.git"
-  },
+  "repository": "https://github.com/atom/styleguide",
   "dependencies": {
     "js-beautify": "~1.4.x",
     "coffee-script": "~1.6.3"
   },
-  "bugs": {
-    "url": "https://github.com/atom/styleguide/issues"
-  },
   "engines": {
     "atom": "*"
-  },
-  "publishConfig": {
-    "registry": "https://atom.cloudant.com/registry/_design/app/_rewrite"
   }
 }
