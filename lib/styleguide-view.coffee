@@ -461,6 +461,29 @@ class StyleguideView extends ScrollView
                 @div class: 'icon icon-file-text', 'Yet another file'
         '''
 
+        @h2 'Single line with key-bindings'
+        @exampleCode '''
+          @div class: 'overlay from-top select-list', =>
+            @ol class: 'list-group', =>
+              @li class: 'selected', =>
+                @div class: 'pull-right', =>
+                  @kbd class: 'key-binding pull-right', '⌘⌥↓'
+                @span class: 'icon icon-file-text', 'Some file'
+              @li =>
+                @div class: 'pull-right key-bindings', =>
+                  @kbd class: 'key-binding', '⌘⌥A'
+                  @kbd class: 'key-binding', '⌘⌥O'
+                  @kbd class: 'key-binding', '⌘⌥1'
+                  @kbd class: 'key-binding', '⌘⌥↓'
+                  @kbd class: 'key-binding', '⌘⌥5'
+                  @kbd class: 'key-binding', '⌘⌥↓'
+                @span class: 'icon icon-file-text', 'Another file with a really long name'
+              @li =>
+                @div class: 'pull-right', =>
+                  @kbd class: 'key-binding', '⌘⌥↓'
+                @span class: 'icon icon-file-text', 'Yet another file'
+        '''
+
         @h2 'Multiple lines with no icons'
         @exampleCode '''
           @div class: 'overlay from-top select-list', =>
