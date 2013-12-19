@@ -629,8 +629,6 @@ class StyleguideView extends ScrollView
           @span class: 'loading loading-spinner-large inline-block'
         '''
 
-
-
   @deserialize: (options={}) ->
     new StyleguideView(options)
 
