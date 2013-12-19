@@ -596,6 +596,40 @@ class StyleguideView extends ScrollView
             @li 'Another info line'
         '''
 
+      @exampleSection 'background-messages', 'Background Messages', ->
+        @p => @raw '''
+          Subtle background messages for panes. Use for cases when there are no results.
+        '''
+
+        @exampleCode '''
+          @ul class: 'background-message', =>
+            @li 'No Results'
+        '''
+
+        @p => @raw '''
+          Centered background messages will center horizontally and vertically.
+          Your container for this element must have <code>position</code> set with <code>relative</code> or
+          <code>absolute</code>.
+        '''
+
+        @exampleCode '''
+          @ul class: 'background-message centered', =>
+            @li 'No Results'
+        '''
+
+      @exampleSection 'error-messages', 'Messages', ->
+        @p => @raw '''
+          Use to convey info to the user when something happens. See <code>find-and-replace</code>
+          for an example.
+        '''
+
+        @h2 'Error messages'
+        @exampleCode '''
+          @ul class: 'error-messages block', =>
+            @li 'This is an error!'
+            @li 'And another'
+        '''
+
       @exampleSection 'progress', 'Loading/Progress', ->
 
         @h2 'Progress Bars'
