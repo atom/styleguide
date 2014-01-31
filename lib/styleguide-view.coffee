@@ -427,8 +427,8 @@ class StyleguideView extends ScrollView
       @exampleSection 'select-list', 'Select List', ->
         @p => @raw '''
           You wont be creating a <code>.select-list</code> directly, but will do so
-          by extending the <code>SelectList</code> class. Your
-          <code>SelectList</code> will usually specify only the list items,
+          by extending the <code>SelectListView</code> class. Your
+          <code>SelectListView</code> will usually specify only the list items,
           and hide/show the errors or loading message.
         '''
 

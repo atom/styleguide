@@ -1,7 +1,7 @@
-{_, $, $$, SelectList} = require 'atom'
+{_, $, $$, SelectListView} = require 'atom'
 
 module.exports =
-class OverlaySelectListView extends SelectList
+class OverlaySelectListView extends SelectListView
 
   @viewClass: ->
     "#{super} overlay from-top"

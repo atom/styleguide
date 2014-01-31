@@ -58,7 +58,7 @@ _.extend View,
     html = $('<div/>').append(selectList).html()
 
     coffeeScript = """
-      class OverlaySelectListView extends SelectList
+      class OverlaySelectListView extends SelectListView
         @viewClass: ->
           "\#{super} overlay from-top"
 
