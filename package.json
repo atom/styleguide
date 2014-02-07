@@ -6,7 +6,7 @@
   "repository": "https://github.com/atom/styleguide",
   "dependencies": {
     "js-beautify": "~1.4.x",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.7.0"
   },
   "engines": {
     "atom": "*"
