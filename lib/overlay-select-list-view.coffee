@@ -1,21 +1,17 @@
-{_, $, $$, SelectListView} = require 'atom'
+{SelectListView} = require 'atom'
 
 module.exports =
 class OverlaySelectListView extends SelectListView
-
-  @viewClass: ->
-    "#{super} overlay from-top"
-
   initialize: (@listOfItems, @itemGenerator) ->
     super
-    @setArray(@listOfItems)
+    @addClass('overlay from-top')
+    @setItems(@listOfItems)
 
   attach: ->
-    super
-    @appendTo(atom.workspaceView)
-    @miniEditor.focus()
+    atom.workspaceView.append(this)
+    @focusFilterEditor()
 
-  itemForElement: (item) ->
+  viewForItem: (item) ->
     @itemGenerator(item)
 
   cancel: ->

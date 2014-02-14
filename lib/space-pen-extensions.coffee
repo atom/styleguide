@@ -59,20 +59,17 @@ _.extend View,
 
     coffeeScript = """
       class OverlaySelectListView extends SelectListView
-        @viewClass: ->
-          "\#{super} overlay from-top"
-
         initialize: (@listOfItems) ->
           super
-          @setArray(@listOfItems)
+          @addClass('overlay from-top')
+          @setItems(@listOfItems)
 
         attach: ->
-          super
-          @appendTo(atom.workspaceView)
-          @miniEditor.focus()
+          atom.workspaceView.append(this)
+          @focusFilterEditor()
 
-        # Here you specify the list items
-        itemForElement: (item) ->
+        # Here you specify the view for an item
+        viewForItem: (item) ->
           $$ ->
             @li =>
               @raw item
