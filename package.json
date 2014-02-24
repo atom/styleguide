@@ -2,7 +2,7 @@
   "name": "styleguide",
   "main": "./lib/styleguide",
   "version": "0.24.0",
-  "description": "A demo of all the UI CSS components.",
+  "description": "A visual styleguide of the Atom's UI components.",
   "repository": "https://github.com/atom/styleguide",
   "license": "MIT",
   "dependencies": {
