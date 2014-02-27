@@ -16,3 +16,6 @@ class OverlaySelectListView extends SelectListView
 
   cancel: ->
     # Do nothing. We never want this to hide
+
+  confirmed: (item) ->
+    # Do nothing. We never want this to hide

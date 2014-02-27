@@ -75,6 +75,9 @@ _.extend View,
             @li =>
               @raw item
 
+        confirmed: (item) ->
+          console.log(item)
+
       view = new OverlaySelectListView([#{array}])
       view.attach()
     """
