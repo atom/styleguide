@@ -1,4 +1,5 @@
 @import "ui-variables";
+@import "syntax-variables";
 
 .styleguide {
   position: relative;
@@ -61,6 +62,8 @@
 }
 
 .example {
+  @example-background: lighten(@tool-panel-background-color, 2%);
+
   display: -webkit-flex;
   border: 1px solid @tool-panel-border-color;
   border-radius: @component-border-radius;
@@ -71,7 +74,7 @@
   .example-rendered {
     position: relative;
     padding: @component-padding;
-    background: lighten(@tool-panel-background-color, 2%);
+    background: @example-background;
     border-radius: @component-border-radius 0 0 @component-border-radius;
 
     .ui-site-1, .ui-site-2, .ui-site-3, .ui-site-4, .ui-site-5 {
@@ -82,7 +85,10 @@
 
   .example-code {
     position: relative;
-    background-color: @inset-panel-background-color;
+    background-color: @syntax-background-color;
+    border-top: 1px solid @example-background;
+    border-right: 1px solid @example-background;
+    border-bottom: 1px solid @example-background;
 
     &.show-example-space-pen {
       .example-space-pen { display: block; }
