@@ -1,4 +1,4 @@
-# Styleguide package
+# Styleguide package [![Build Status](https://travis-ci.org/atom/styleguide.svg?branch=master)](https://travis-ci.org/atom/styleguide)
 
 The styleguide will show you all the UI components used in Atom. It is useful
 as a reference when developing themes and packages.
