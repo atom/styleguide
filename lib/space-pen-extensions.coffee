@@ -3,8 +3,11 @@ _ = require 'underscore-plus'
 
 coffee = require 'coffee-script'
 beautifyHtml = require('js-beautify').html
+Highlights = require 'highlights'
 
 OverlaySelectListView = require './overlay-select-list-view'
+
+highlighter = null
 
 _.extend View,
   exampleCode: (spacePenCoffee) ->
@@ -32,22 +35,18 @@ _.extend View,
         @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
   colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
-    editorBlock = $$ ->
-      @pre class: cssClass+' editor-colors editor', ''
 
-    refreshHtml = (grammar) ->
-      editorBlock.empty()
-      for tokens in grammar.tokenizeLines(code)
-        editorBlock.append(EditorView.buildLineHtml({tokens, text: code}))
+    highlighter ?= new Highlights(registry: atom.syntax)
+    highlightedHtml = highlighter.highlightSync
+      fileContents: code
+      scopeName: grammarScopeName
 
-    if grammar = atom.syntax.grammarForScopeName(grammarScopeName)
-      refreshHtml(grammar)
-    else
-      atom.syntax.on 'grammar-added grammar-updated', (grammar) ->
-        return unless grammar.scopeName == grammarScopeName
-        refreshHtml(grammar)
+    highlightedBlock = $(highlightedHtml)
+    # The `editor` class messes things up as `.editor` has absolutely positioned lines
+    highlightedBlock.removeClass('editor')
+    highlightedBlock.addClass(cssClass)
 
-    @subview '__', editorBlock
+    @subview '__', highlightedBlock
 
   # TODO: maybe take this out. It might not add that much to the docs?
   exampleOverlaySelectList: (array) ->
