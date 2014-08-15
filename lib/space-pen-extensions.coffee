@@ -35,7 +35,6 @@ _.extend View,
         @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
   colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
-
     highlighter ?= new Highlights(registry: atom.syntax)
     highlightedHtml = highlighter.highlightSync
       fileContents: code
@@ -45,6 +44,8 @@ _.extend View,
     # The `editor` class messes things up as `.editor` has absolutely positioned lines
     highlightedBlock.removeClass('editor')
     highlightedBlock.addClass(cssClass)
+    if fontFamily = atom.config.get('editor.fontFamily')
+      highlightedBlock.css('font-family', fontFamily)
 
     @subview '__', highlightedBlock
 
