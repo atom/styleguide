@@ -4,38 +4,41 @@
 .styleguide {
   position: relative;
   overflow: auto;
+  font-size: 12px;
 
-  section.collapsed {
-    opacity: .6;
-    padding-top: @component-padding;
-    padding-bottom: @component-padding;
-    &:hover { opacity: 1; }
-
-    > .section-heading {
-      display: block;
-      margin: 0;
+  & > section {
+    &.bordered {
+      padding: @component-padding*2;
     }
 
-    > * {
-      display: none
+    & :last-child {
+      margin-bottom: 0;
+    }
+
+    &.collapsed {
+      > .section-heading {
+        display: block;
+        margin: 0;
+        color: @text-color;
+      }
+      > * {
+        display: none
+      }
     }
   }
 
   section .section-heading {
     cursor: pointer;
     font-weight: bold;
+    font-size: 1.6em;
     color: @text-color-highlight;
-
     &:hover {
       color: @text-color-highlight;
-      font-weight: bold;
-      cursor: pointer;
     }
   }
 
   section[data-name="styleguide"] {
     border-top: none;
-    padding-top: 0;
   }
 
   .overlay, .popover-list {
@@ -86,9 +89,7 @@
   .example-code {
     position: relative;
     background-color: @syntax-background-color;
-    border-top: 1px solid @example-background;
-    border-right: 1px solid @example-background;
-    border-bottom: 1px solid @example-background;
+    border-left: 1px solid @tool-panel-border-color;
 
     &.show-example-space-pen {
       .example-space-pen { display: block; }
@@ -102,7 +103,6 @@
       top: @component-padding;
       right: @component-padding;
       z-index: 10;
-      .btn.selected { background-color: #222; }
     }
 
     .editor-colors {
