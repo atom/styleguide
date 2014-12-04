@@ -1,11 +1,7 @@
-{WorkspaceView} = require 'atom'
-
 describe "Style Guide", ->
   workspaceElement = null
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-
     workspaceElement = atom.views.getView(atom.workspace)
     waitsForPromise ->
       atom.packages.activatePackage("styleguide")

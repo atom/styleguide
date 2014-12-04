@@ -5,14 +5,17 @@ createStyleguideView = (state) ->
   StyleguideView ?= require './styleguide-view'
   new StyleguideView(state)
 
-deserializer =
+atom.deserializers.add
   name: 'StyleguideView'
   deserialize: (state) -> createStyleguideView(state)
-atom.deserializers.add(deserializer)
 
 module.exports =
   activate: ->
-    atom.workspace.registerOpener (filePath) ->
+    atom.workspace.addOpener (filePath) ->
       createStyleguideView(uri: styleguideUri) if filePath is styleguideUri
 
-    atom.workspaceView.command 'styleguide:show', -> atom.workspaceView.open(styleguideUri)
+    @disposable = atom.commands.add 'atom-workspace', 'styleguide:show', ->
+      atom.workspace.open(styleguideUri)
+
+  deactivate: ->
+    @disposable.dispose()
