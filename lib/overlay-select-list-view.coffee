@@ -1,4 +1,4 @@
-{SelectListView} = require 'atom'
+{SelectListView} = require 'atom-space-pen-views'
 
 module.exports =
 class OverlaySelectListView extends SelectListView

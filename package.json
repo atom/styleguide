@@ -6,10 +6,11 @@
   "repository": "https://github.com/atom/styleguide",
   "license": "MIT",
   "dependencies": {
-    "js-beautify": "~1.4.x",
+    "atom-space-pen-views": "^0.20.0",
     "coffee-script": "~1.7.0",
-    "underscore-plus": "1.x",
-    "highlights": "0.13.0"
+    "highlights": "0.13.0",
+    "js-beautify": "~1.4.x",
+    "underscore-plus": "1.x"
   },
   "engines": {
     "atom": "*"

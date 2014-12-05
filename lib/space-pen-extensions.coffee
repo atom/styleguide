@@ -1,5 +1,5 @@
 _ = require 'underscore-plus'
-{$, $$, $$$, EditorView, View} = require 'atom'
+{$, $$, $$$, View} = require 'atom-space-pen-views'
 
 coffee = require 'coffee-script'
 beautifyHtml = require('js-beautify').html
