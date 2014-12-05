@@ -35,7 +35,7 @@ _.extend View,
         @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
   colorizedCodeBlock: (cssClass, grammarScopeName, code) ->
-    highlighter ?= new Highlights(registry: atom.syntax)
+    highlighter ?= new Highlights(registry: atom.grammars)
     highlightedHtml = highlighter.highlightSync
       fileContents: code
       scopeName: grammarScopeName
