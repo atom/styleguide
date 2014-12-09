@@ -38,7 +38,7 @@
     padding-top: 0;
   }
 
-  .overlay, .popover-list {
+  .popover-list {
     position: relative;
   }
 
@@ -75,6 +75,7 @@
     position: relative;
     padding: @component-padding;
     background: @example-background;
+    overflow: hidden;
     border-radius: @component-border-radius 0 0 @component-border-radius;
 
     .ui-site-1, .ui-site-2, .ui-site-3, .ui-site-4, .ui-site-5 {
@@ -93,6 +94,7 @@
     &.show-example-space-pen {
       .example-space-pen { display: block; }
     }
+
     &.show-example-html {
       .example-html { display: block; }
     }
@@ -104,16 +106,5 @@
       z-index: 10;
       .btn.selected { background-color: #222; }
     }
-
-    .editor-colors {
-      background-color: transparent;
-      display: none;
-      border: none;
-      -webkit-user-select: text;
-      padding: @component-padding;
-      border-radius: 0 @component-border-radius @component-border-radius 0;
-      > div { line-height: 1.4; }
-    }
   }
-
 }
