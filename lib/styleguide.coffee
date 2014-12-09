@@ -1,8 +1,7 @@
-StyleguideView = null
 styleguideUri = 'atom://styleguide'
 
 createStyleguideView = (state) ->
-  StyleguideView ?= require './styleguide-view'
+  StyleguideView = require './styleguide-view'
   new StyleguideView(state)
 
 atom.deserializers.add
