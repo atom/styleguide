@@ -12,6 +12,9 @@
     "js-beautify": "~1.4.x",
     "underscore-plus": "1.x"
   },
+  "devDependencies": {
+    "atom-selector-linter": "^0.1.4"
+  },
   "engines": {
     "atom": "*"
   }
