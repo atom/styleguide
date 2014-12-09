@@ -1,4 +1,5 @@
-styleguideUri = 'atom://styleguide'
+{CompositeDisposable} = require 'atom'
+StyleguideUri = 'atom://styleguide'
 
 createStyleguideView = (state) ->
   StyleguideView = require './styleguide-view'
@@ -10,11 +11,11 @@ atom.deserializers.add
 
 module.exports =
   activate: ->
-    atom.workspace.addOpener (filePath) ->
-      createStyleguideView(uri: styleguideUri) if filePath is styleguideUri
-
-    @disposable = atom.commands.add 'atom-workspace', 'styleguide:show', ->
-      atom.workspace.open(styleguideUri)
+    @subscriptions = new CompositeDisposable
+    @subscriptions.add atom.workspace.addOpener (filePath) ->
+      createStyleguideView(uri: StyleguideUri) if filePath is StyleguideUri
+    @subscriptions.add atom.commands.add 'atom-workspace', 'styleguide:show', ->
+      atom.workspace.open(StyleguideUri)
 
   deactivate: ->
-    @disposable.dispose()
+    @subscriptions.dispose()
