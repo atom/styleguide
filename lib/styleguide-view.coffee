@@ -7,7 +7,7 @@ ExampleSection = require './example-section'
 module.exports =
 class StyleguideView extends ScrollView
   @content: ->
-    @div class: 'styleguide pane-item native-key-bindings', tabindex: -1, =>
+    @div class: 'styleguide pane-item native-key-bindings padded', tabindex: -1, =>
       @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
 
       @exampleSection 'styleguide', 'Styleguide', ->
