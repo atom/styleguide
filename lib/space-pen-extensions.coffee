@@ -1,5 +1,3 @@
-fs = require 'fs'
-path = require 'path'
 _ = require 'underscore-plus'
 {$, $$, $$$, View} = require 'atom-space-pen-views'
 coffee = require 'coffee-script'
@@ -20,7 +18,24 @@ _.extend View,
 
   exampleOverlaySelectList: ->
     selectList = new ExampleSelectListView(['one', 'two', 'three'])
-    coffeeScript = fs.readFileSync(path.join(__dirname, "example-select-list-view.coffee")).toString()
+    coffeeScript = """
+      {SelectListView, $$} = require 'atom-space-pen-views'
+
+      module.exports =
+      class ExampleSelectListView extends SelectListView
+        initialize: (@listOfItems) ->
+          super
+          @setItems(@listOfItems)
+
+        viewForItem: (item) ->
+          $$ -> @li(item)
+
+        cancel: ->
+          console.log("cancelled")
+
+        confirmed: (item) ->
+          console.log("confirmed", item)
+    """
 
     @div class: 'example', =>
       @div class: 'example-rendered', =>
