@@ -18,9 +18,9 @@ _.extend View,
       @div class: 'example-code show-example-html', =>
         @colorizedCodeBlock 'example-html', 'text.xml', beautifyHtml(html)
 
-  exampleOverlaySelectList: () ->
+  exampleOverlaySelectList: ->
     selectList = new ExampleSelectListView(['one', 'two', 'three'])
-    coffeeScript = fs.readFileSync(path.join(__dirname, "./example-select-list-view.coffee")).toString()
+    coffeeScript = fs.readFileSync(path.join(__dirname, "example-select-list-view.coffee")).toString()
 
     @div class: 'example', =>
       @div class: 'example-rendered', =>
