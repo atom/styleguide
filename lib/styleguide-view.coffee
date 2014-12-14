@@ -112,7 +112,7 @@ class StyleguideView extends ScrollView
 
         @h2 'text-* classes'
         @exampleHtml '''
-          <p class='text-smaller'>Smaller text</p>
+          <div class='text-smaller'>Smaller text</div>
           <div>Normal text</div>
           <div class='text-subtle'>Subtle text</div>
           <div class='text-highlight'>Highlighted text</div>
