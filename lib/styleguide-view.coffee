@@ -269,6 +269,16 @@ class StyleguideView extends ScrollView
           </div>
         '''
 
+        @h2 'Icon buttons'
+        @p => @raw 'Overview of all <a href="https://octicons.github.com/">Octicons</a>.'
+        @exampleHtml '''
+          <div class='block'>
+            <button class='btn icon icon-gear inline-block-tight'>Settings</button>
+            <button class='btn btn-primary icon icon-cloud-download inline-block-tight'>Install</button>
+            <button class='btn btn-error icon icon-octoface inline-block-tight'>Danger</button>
+          </div>
+        '''
+
         @h2 'Button Groups'
         @exampleHtml '''
           <div class='block'>
