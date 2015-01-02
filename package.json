@@ -10,8 +10,8 @@
     "atom-space-pen-views": "^0.20.0",
     "coffee-script": "~1.7.0",
     "highlights": "0.13.0",
-    "js-beautify": "~1.4.x",
-    "underscore-plus": "1.x"
+    "js-beautify": "^1.4.0",
+    "underscore-plus": "^1.0.0"
   },
   "engines": {
     "atom": "*"
