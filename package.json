@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "atom-selector-linter": "^0.1.4",
-    "atom-space-pen-views": "^0.20.0",
+    "atom-space-pen-views": "^1.0.0",
     "coffee-script": "~1.7.0",
     "highlights": "0.13.0",
     "js-beautify": "^1.4.0",
