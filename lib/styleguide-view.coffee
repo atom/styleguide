@@ -946,9 +946,9 @@ class StyleguideView extends ScrollView
   serialize: ->
     deserializer: @constructor.name
     collapsedSections: @getCollapsedSections()
-    uri: @getUri()
+    uri: @getURI()
 
-  getUri: -> @uri
+  getURI: -> @uri
 
   getTitle: -> "Styleguide"
 
