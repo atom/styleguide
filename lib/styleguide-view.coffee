@@ -222,6 +222,48 @@ class StyleguideView extends ScrollView
           <div class='block ui-site-5'></div>
         '''
 
+      @exampleSection 'badges', 'Badges', ->
+        @p => @raw 'Badges are typically used to show numbers.'
+
+        @h2 'Standalone badges'
+        @exampleHtml '''
+          <div class='block'>
+            <span class='badge'>0</span>
+            <span class='badge'>8</span>
+            <span class='badge'>27</span>
+            <span class='badge'>450</span>
+            <span class='badge'>2869</span>
+          </div>
+        '''
+
+        @h2 'Colored badges'
+        @exampleHtml '''
+          <div class='block'>
+            <span class='badge badge-info'>78</span>
+            <span class='badge badge-success'>3</span>
+            <span class='badge badge-warning'>14</span>
+            <span class='badge badge-error'>1845</span>
+          </div>
+        '''
+
+        @h2 'Badge sizes'
+        @p => @raw 'By default the <code>@font-size</code> variable from themes is used. Additionally there are also 3 predefined sizes.'
+        @exampleHtml '''
+          <div class='block'>Large <span class='badge badge-large'>5</span></div>
+          <div class='block'>Medium <span class='badge badge-medium'>5</span></div>
+          <div class='block'>Small <span class='badge badge-small'>5</span></div>
+        '''
+
+        @h2 'Icon Badges'
+        @p => @raw 'Overview of all <a href="https://octicons.github.com/">Octicons</a>.'
+        @exampleHtml '''
+          <div class='block'>
+            <span class='badge icon icon-gear'>4</span>
+            <span class='badge badge-info icon icon-cloud-download'>13</span>
+            <span class='badge badge-success icon icon-octoface'>5</span>
+          </div>
+        '''
+
       @exampleSection 'buttons', 'Buttons', ->
         @p => @raw 'Buttons are similar to bootstrap buttons'
 
