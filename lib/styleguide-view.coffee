@@ -249,9 +249,9 @@ class StyleguideView extends ScrollView
         @h2 'Badge sizes'
         @p => @raw 'By default the <code>@font-size</code> variable from themes is used. Additionally there are also 3 predefined sizes.'
         @exampleHtml '''
-          <div class='block'>Large <span class='badge badge-large'>5</span></div>
-          <div class='block'>Medium <span class='badge badge-medium'>5</span></div>
-          <div class='block'>Small <span class='badge badge-small'>5</span></div>
+          <div class='block'>Large <span class='badge badge-large'>8</span></div>
+          <div class='block'>Medium <span class='badge badge-medium'>2</span></div>
+          <div class='block'>Small <span class='badge badge-small'>7</span></div>
         '''
 
         @p => @raw 'If you like the size change depending on the parent, use the <code>badge-flexible</code> class. Note: Best used for larger sizes. For smaller sizes it could cause the number to be mis-aligned by a pixel.'
