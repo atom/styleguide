@@ -254,6 +254,13 @@ class StyleguideView extends ScrollView
           <div class='block'>Small <span class='badge badge-small'>5</span></div>
         '''
 
+        @p => @raw 'If you like the size change depending on the parent, use the <code>badge-flexible</code> class. Note: Best used for larger sizes. For smaller sizes it could cause the number to be mis-aligned by a pixel.'
+        @exampleHtml '''
+          <h1 class='block'>Heading <span class='badge badge-flexible'>1</span></h1>
+          <h2 class='block'>Heading <span class='badge badge-flexible'>2</span></h2>
+          <h3 class='block'>Heading <span class='badge badge-flexible'>3</span></h3>
+        '''
+
         @h2 'Icon Badges'
         @p => @raw 'Overview of all <a href="https://octicons.github.com/">Octicons</a>.'
         @exampleHtml '''
