@@ -1004,9 +1004,9 @@ class StyleguideView extends ScrollView
   onDidChangeTitle: -> new Disposable ->
   onDidChangeModified: -> new Disposable ->
 
-  collapseAllSections: =>
+  collapseAllSections: ->
     for name, section of StyleguideView.exampleSections
-      continue if name == 'styleguide'
+      continue if name is 'styleguide'
       section.collapse()
 
   getCollapsedSections: ->
