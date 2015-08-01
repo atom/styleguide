@@ -532,7 +532,7 @@ class StyleguideView extends ScrollView
 
                 <li class='list-nested-item collapsed'>
                   <div class='list-item'>
-                    <span class='icon icon-file-directory'>Collpased Nested Directory</span>
+                    <span class='icon icon-file-directory'>Collapsed Nested Directory</span>
                   </div>
 
                   <ul class='list-tree'>
@@ -585,7 +585,7 @@ class StyleguideView extends ScrollView
 
                 <li class='list-nested-item collapsed'>
                   <div class='list-item'>
-                    <span class='icon icon-file-directory'>Collpased Nested Directory</span>
+                    <span class='icon icon-file-directory'>Collapsed Nested Directory</span>
                   </div>
 
                   <ul class='list-tree'>
