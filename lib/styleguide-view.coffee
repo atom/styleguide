@@ -929,27 +929,27 @@ class StyleguideView extends ScrollView
         @h2 'Progress Bars'
         @exampleHtml '''
           <div class='block'>
-            <progress class='inline-block'/>
+            <progress class='inline-block'></progress>
             <span class='inline-block'>Indeterminate</span>
           </div>
 
           <div class='block'>
-            <progress class='inline-block', max='100' value='25'/>
+            <progress class='inline-block' max='100' value='25'></progress>
             <span class='inline-block'>At 25%</span>
           </div>
 
           <div class='block'>
-            <progress class='inline-block', max='100' value='50'/>
+            <progress class='inline-block' max='100' value='50'></progress>
             <span class='inline-block'>At 50%</span>
           </div>
 
           <div class='block'>
-            <progress class='inline-block' max='100' value='75'/>
+            <progress class='inline-block' max='100' value='75'></progress>
             <span class='inline-block'>At 75%</span>
           </div>
 
           <div class='block'>
-            <progress class='inline-block', max='100' value='100'/>
+            <progress class='inline-block' max='100' value='100'></progress>
             <span class='inline-block'>At 100%</span>
           </div>
         '''
