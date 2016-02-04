@@ -472,7 +472,7 @@ class StyleguideView extends ScrollView
         '''
 
         @h2 'Icon Badges'
-        @p => @raw 'Overview of all <a href="https://octicons.github.com/">Octicons</a>.'
+        @p => @raw 'See the icons section to get an overview of all Octicons.'
         @exampleHtml '''
           <div class='block'>
             <span class='badge icon icon-gear'>4</span>
