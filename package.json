@@ -13,6 +13,9 @@
     "js-beautify": "^1.4.0",
     "underscore-plus": "^1.0.0"
   },
+  "deserializers": {
+    "StyleguideView": "createStyleguideView"
+  },
   "engines": {
     "atom": "*"
   },
