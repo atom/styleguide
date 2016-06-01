@@ -10,7 +10,8 @@ class StyleguideView extends ScrollView
     @div class: 'styleguide pane-item native-key-bindings padded', tabindex: -1, =>
       @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
 
-      @exampleSection 'styleguide', 'Styleguide', ->
+      @header class: 'styleguide-header', =>
+        @h1 'Styleguide'
         @p 'This exercises all UI components and acts as a styleguide.'
 
       @exampleSection 'variables', 'Variables', ->

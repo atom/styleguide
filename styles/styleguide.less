@@ -11,10 +11,9 @@
 
   & > section {
     background-color: @styleguide-bg;
-    &.bordered {
-      border-top: none;
-      padding: 0;
-    }
+    padding: 0;
+    border-top: 1px solid @base-border-color;
+    border-bottom: none;
 
     &:first-of-type {
       background-color: @base-background-color;
@@ -45,6 +44,12 @@
     }
   }
 
+  .styleguide-header h1 {
+    font-size: 2em;
+    margin: 1em @styleguide-spacing .5em @styleguide-spacing;
+    color: @text-color-highlight;
+  }
+
   .section-heading.section-heading {
     padding: @styleguide-spacing @styleguide-spacing 0 @styleguide-spacing;
     cursor: pointer;
@@ -56,7 +61,7 @@
   h2 {
     font-size: 1.5em;
     line-height: 1.2;
-    margin: 1.75em @styleguide-spacing 0 @styleguide-spacing;
+    margin: 1em @styleguide-spacing 0 @styleguide-spacing;
     color: @text-color-highlight;
   }
 
