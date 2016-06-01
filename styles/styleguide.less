@@ -1,24 +1,43 @@
 @import "ui-variables";
 @import "syntax-variables";
 
+@styleguide-spacing: @component-padding *1.5;
+@styleguide-bg: darken(@base-background-color, 2%);
+
 .styleguide {
   position: relative;
   overflow: auto;
+  padding: 0;
 
   & > section {
+    background-color: @styleguide-bg;
     &.bordered {
-      padding: @component-padding*2;
+      border-top: none;
+      padding: 0;
     }
 
-    & :last-child {
+    &:first-of-type {
+      background-color: @base-background-color;
+    }
+
+    &:last-child {
       margin-bottom: 0;
     }
 
     &.collapsed {
+      background-color: @base-background-color;
       > .section-heading {
         display: block;
         margin: 0;
+        padding-bottom: @styleguide-spacing;
         color: @text-color;
+        &:hover {
+          color: @text-color-highlight;
+          background-color: @background-color-highlight;
+        }
+        &:active {
+          background-color: @base-background-color;
+        }
       }
       > * {
         display: none
@@ -26,30 +45,24 @@
     }
   }
 
-  section .section-heading {
+  .section-heading.section-heading {
+    padding: @styleguide-spacing @styleguide-spacing 0 @styleguide-spacing;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 1.6em;
+    font-weight: normal;
+    font-size: 1.8em;
     color: @text-color-highlight;
-    &:hover {
-      color: @text-color-highlight;
-    }
   }
 
   h2 {
     font-size: 1.5em;
     line-height: 1.2;
-    margin: 1.75em 0 0 0;
+    margin: 1.75em @styleguide-spacing 0 @styleguide-spacing;
     color: @text-color-highlight;
   }
 
   p {
     font-size: 1.2em;
-    margin: .5em 0 1em 0;
-  }
-
-  section[data-name="styleguide"] {
-    border-top: none;
+    margin: .5em @styleguide-spacing 1em @styleguide-spacing;
   }
 
   .popover-list {
@@ -82,7 +95,6 @@
 
   display: flex;
   flex-wrap: wrap;
-  // border: 1px solid @tool-panel-border-color;
   border-radius: @component-border-radius;
   padding: @component-padding / 2;
 
