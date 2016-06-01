@@ -75,22 +75,31 @@
   }
 }
 
+// Example -------------------------------
+
 .example {
-  @example-background: lighten(@tool-panel-background-color, 2%);
+  @example-background: @base-background-color;
 
-  display: -webkit-flex;
-  border: 1px solid @tool-panel-border-color;
+  display: flex;
+  flex-wrap: wrap;
+  // border: 1px solid @tool-panel-border-color;
   border-radius: @component-border-radius;
-  margin: @component-padding 0;
+  padding: @component-padding / 2;
 
-  > * { width: 50%; }
+  .example-rendered,
+  .example-code {
+    position: relative;
+    flex: 1 1 300px;
+    min-width: 0;
+    margin: @component-padding / 2;
+    border-radius: @component-border-radius;
+    border: 1px solid @tool-panel-border-color;
+  }
 
   .example-rendered {
-    position: relative;
     padding: @component-padding;
     background: @example-background;
     overflow: hidden;
-    border-radius: @component-border-radius 0 0 @component-border-radius;
 
     .ui-site-1, .ui-site-2, .ui-site-3, .ui-site-4, .ui-site-5 {
       height: 10px;
@@ -99,9 +108,7 @@
   }
 
   .example-code {
-    position: relative;
     background-color: @syntax-background-color;
-    border-left: 1px solid @tool-panel-border-color;
 
     &.show-example-space-pen {
       .example-space-pen { display: block; }
