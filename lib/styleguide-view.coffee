@@ -630,7 +630,7 @@ class StyleguideView extends ScrollView
         @exampleSection 'panel', 'Panels', ->
           @p 'A container attached to some side of the Atom UI.'
           @exampleHtml '''
-            <atom-panel class='top'>
+            <atom-panel>
               Some content
             </atom-panel>
           '''
@@ -638,21 +638,17 @@ class StyleguideView extends ScrollView
           @h2 'Inset Panel'
           @p 'Use inside a panel'
           @exampleHtml '''
-            <atom-panel class='top'>
-              <div class="padded">
-                <div class="inset-panel padded">Some inset content</div>
-              </div>
+            <atom-panel class='padded'>
+              <div class="inset-panel padded">Some inset content</div>
             </atom-panel>
           '''
 
           @h2 'With a heading'
           @exampleHtml '''
-            <atom-panel class='top'>
-              <div class="padded">
-                <div class="inset-panel">
-                  <div class="panel-heading">An inset-panel heading</div>
-                  <div class="panel-body padded">Some Content</div>
-                </div>
+            <atom-panel class='padded'>
+              <div class="inset-panel">
+                <div class="panel-heading">An inset-panel heading</div>
+                <div class="panel-body padded">Some Content</div>
               </div>
             </atom-panel>
           '''
