@@ -1,0 +1,78 @@
+@import "ui-variables";
+
+.styleguide {
+
+  // Icons ---------------
+
+  [data-name="icons"] {
+    .example-rendered {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
+    .icon {
+      flex-basis: 50%;
+      padding: 10px 0 10px 40px;
+      color: @text-color-subtle;
+      &:before {
+        position: absolute;
+        margin-left: -32px;
+        color: @text-color-highlight;
+        text-align: center;
+      }
+      &:hover {
+        color: @text-color-highlight;
+        &:before {
+          color: @text-color-selected;
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+          margin-top: -8px;
+          margin-left: -40px; // 32px (initial) + 8px (grow)
+        }
+      }
+    }
+
+    // Shift the GitHub logo since it's quite wide
+    .icon-logo-github {
+      &:before {
+        margin-left: -60px;
+      }
+      &:hover:before {
+        margin-left: -100px;
+      }
+    }
+  }
+
+  // Site colors ---------------
+
+  .ui-site-1,
+  .ui-site-2,
+  .ui-site-3,
+  .ui-site-4,
+  .ui-site-5 {
+    height: 10px;
+    width: 100px;
+  }
+
+
+  // Misc ---------------
+
+  .popover-list {
+    position: relative;
+  }
+
+  .popover-list,
+  .select-list {
+    atom-text-editor[mini] { height: 27px; }
+  }
+
+  .tooltip {
+    position: relative;
+    opacity: 1;
+    display: inline-block;
+    margin-right: @component-padding;
+  }
+
+}
