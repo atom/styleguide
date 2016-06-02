@@ -903,10 +903,6 @@ class StyleguideView extends ScrollView
                     <div class='pull-right key-bindings'>
                       <kbd class='key-binding'>⌘⌥A</kbd>
                       <kbd class='key-binding'>⌘⌥O</kbd>
-                      <kbd class='key-binding'>⌘⌥1</kbd>
-                      <kbd class='key-binding'>⌘⌥↓</kbd>
-                      <kbd class='key-binding'>⌘⌥5</kbd>
-                      <kbd class='key-binding'>⌘⌥↓</kbd>
                     </div>
 
                     <span class='icon icon-file-text'>Another file with a long name</span>
