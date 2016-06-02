@@ -1023,10 +1023,6 @@ class StyleguideView extends ScrollView
 
         @exampleSection 'modal-panel', 'Modals', ->
           @p => @raw 'Modals are like dialog boxes.'
-          @p => @raw '''
-            Supported classes: <code>.from-top</code>, <code>.from-bottom</code> and <code>.floating</code>.
-            <code>.from-top</code> will come down from the top of the UI, etc.
-          '''
           @exampleHtml '''
             <atom-panel class='modal'>
               <div>Some content</div>
