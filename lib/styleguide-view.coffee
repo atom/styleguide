@@ -641,7 +641,7 @@ class StyleguideView extends ScrollView
           </atom-panel>
         '''
 
-      @exampleSection 'inset-panel', 'Inset Panel', ->
+        @h2 'Inset Panel'
         @p 'Use inside a panel'
         @exampleHtml '''
           <atom-panel class='top'>
