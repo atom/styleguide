@@ -318,7 +318,7 @@ class StyleguideView extends ScrollView
           <span class='icon icon-zap'>zap</span>
         '''
 
-      @exampleSection 'text', 'Text classes', ->
+      @exampleSection 'text', 'Text', ->
         @p => @raw 'There are a number of text classes.'
 
         @h2 'text-* classes'
@@ -343,7 +343,7 @@ class StyleguideView extends ScrollView
           <span class='inline-block highlight-error'>Error</span>
         '''
 
-      @exampleSection 'layout', 'Layout classes', ->
+      @exampleSection 'layout', 'Layout', ->
         @p => @raw 'A few things that might be useful for general layout.'
 
         @h2 '.block'
@@ -392,7 +392,7 @@ class StyleguideView extends ScrollView
           </div>
         '''
 
-      @exampleSection 'git', 'Git related classes', ->
+      @exampleSection 'git', 'Git Status', ->
         @p => @raw 'Often we need git related classes to specify status.'
 
         @h2 'status-* classes'
