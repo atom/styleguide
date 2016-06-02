@@ -8,7 +8,9 @@ module.exports =
 class StyleguideView extends ScrollView
   @content: ->
     @div class: 'styleguide pane-item native-key-bindings padded', tabindex: -1, =>
-      @button outlet: 'collapseAllButton', class: 'btn btn-collapse-all', 'Collapse All Sections'
+      @div class: 'styleguide-controls btn-group', =>
+        @button outlet: 'collapseAllButton', class: 'btn', 'Collapse All'
+        @button outlet: 'expandAllButton', class: 'btn', 'Expand All'
 
       @header class: 'styleguide-header', =>
         @h1 'Styleguide'
@@ -1185,6 +1187,7 @@ class StyleguideView extends ScrollView
       btn.addClass('selected')
 
     @collapseAllButton.click(@collapseAllSections)
+    @expandAllButton.click(@expandAllSections)
 
     @append(section.el) for __, section of StyleguideView.exampleSections
     @setCollapsedSections(collapsedSections)
@@ -1205,6 +1208,11 @@ class StyleguideView extends ScrollView
     for name, section of StyleguideView.exampleSections
       continue if name is 'styleguide'
       section.collapse()
+
+  expandAllSections: ->
+    for name, section of StyleguideView.exampleSections
+      continue if name is 'styleguide'
+      section.expand()
 
   getCollapsedSections: ->
     $(sec).attr('data-name') for sec in @find('section.collapsed')
