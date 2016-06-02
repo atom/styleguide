@@ -22,95 +22,94 @@ class StyleguideView extends ScrollView
         @exampleSection 'variables', 'Variables', ->
           @p => @raw '''Use these UI variables in your package's stylesheets. They are set by UI themes and therefore your package will match the overall look. Make sure to @import 'ui-variables' in your stylesheets to use these variables.'''
 
-          @div class: 'variables-group', =>
-            @h2 'Text colors'
-            @exampleHtml '''
-              <div class="is-color text-color">@text-color</div>
-              <div class="is-color text-color-subtle">@text-color-subtle</div>
-              <div class="is-color text-color-highlight">@text-color-highlight</div>
-              <div class="is-color text-color-selected">@text-color-selected</div>
-              <div class="is-color"></div>
-              <div class="is-color text-color-info">@text-color-info</div>
-              <div class="is-color text-color-success">@text-color-success</div>
-              <div class="is-color text-color-warning">@text-color-warning</div>
-              <div class="is-color text-color-error">@text-color-error</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Background colors'
-            @exampleHtml '''
-              <div class="is-color background-color-info">@background-color-info</div>
-              <div class="is-color background-color-success">@background-color-success</div>
-              <div class="is-color background-color-warning">@background-color-warning</div>
-              <div class="is-color background-color-error">@background-color-error</div>
-              <div class="is-color"></div>
-              <div class="is-color background-color-highlight">@background-color-highlight</div>
-              <div class="is-color background-color-selected">@background-color-selected</div>
-              <div class="is-color app-background-color">@app-background-color</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Base colors'
-            @exampleHtml '''
-              <div class="is-color base-background-color">@base-background-color</div>
-              <div class="is-color base-border-color">@base-border-color</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Component colors'
-            @exampleHtml '''
-              <div class="is-color pane-item-background-color">@pane-item-background-color</div>
-              <div class="is-color pane-item-border-color">@pane-item-border-color</div>
-              <div class="is-color"></div>
-              <div class="is-color input-background-color">@input-background-color</div>
-              <div class="is-color input-border-color">@input-border-color</div>
-              <div class="is-color"></div>
-              <div class="is-color tool-panel-background-color">@tool-panel-background-color</div>
-              <div class="is-color tool-panel-border-color">@tool-panel-border-color</div>
-              <div class="is-color inset-panel-background-color">@inset-panel-background-color</div>
-              <div class="is-color inset-panel-border-color">@inset-panel-border-color</div>
-              <div class="is-color panel-heading-background-color">@panel-heading-background-color</div>
-              <div class="is-color panel-heading-border-color">@panel-heading-border-color</div>
-              <div class="is-color overlay-background-color">@overlay-background-color</div>
-              <div class="is-color overlay-border-color">@overlay-border-color</div>
-              <div class="is-color"></div>
-              <div class="is-color button-background-color">@button-background-color</div>
-              <div class="is-color button-background-color-hover">@button-background-color-hover</div>
-              <div class="is-color button-background-color-selected">@button-background-color-selected</div>
-              <div class="is-color button-border-color">@button-border-color</div>
-              <div class="color"></div>
-              <div class="is-color tab-bar-background-color">@tab-bar-background-color</div>
-              <div class="is-color tab-bar-border-color">@tab-bar-border-color</div>
-              <div class="is-color tab-background-color">@tab-background-color</div>
-              <div class="is-color tab-background-color-active">@tab-background-color-active</div>
-              <div class="is-color tab-border-color">@tab-border-color</div>
-              <div class="is-color"></div>
-              <div class="is-color tree-view-background-color">@tree-view-background-color</div>
-              <div class="is-color tree-view-border-color">@tree-view-border-color</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Site colors'
-            @exampleHtml '''
-              <div class="is-color ui-site-color-1">@ui-site-color-1</div>
-              <div class="is-color ui-site-color-2">@ui-site-color-2</div>
-              <div class="is-color ui-site-color-3">@ui-site-color-3</div>
-              <div class="is-color ui-site-color-4">@ui-site-color-4</div>
-              <div class="is-color ui-site-color-5">@ui-site-color-5</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Sizes'
-            @exampleHtml '''
-              <div class="is-size disclosure-arrow-size">@disclosure-arrow-size</div>
-              <div class="is-size component-padding">@component-padding</div>
-              <div class="is-size component-icon-padding">@component-icon-padding</div>
-              <div class="is-size component-icon-size">@component-icon-size</div>
-              <div class="is-size component-line-height">@component-line-height</div>
-              <div class="is-size tab-height">@tab-height</div>
-              <div class="is-size font-size">@font-size</div>
-            '''
-          @div class: 'variables-group', =>
-            @h2 'Misc'
-            @exampleHtml '''
-              <div class="is-radius component-border-radius">@component-border-radius</div>
-              <div class="is-font font-family">@font-family</div>
-            '''
+          @h2 'Text colors'
+          @exampleHtml '''
+            <div class="is-color text-color">@text-color</div>
+            <div class="is-color text-color-subtle">@text-color-subtle</div>
+            <div class="is-color text-color-highlight">@text-color-highlight</div>
+            <div class="is-color text-color-selected">@text-color-selected</div>
+            <div class="is-color"></div>
+            <div class="is-color text-color-info">@text-color-info</div>
+            <div class="is-color text-color-success">@text-color-success</div>
+            <div class="is-color text-color-warning">@text-color-warning</div>
+            <div class="is-color text-color-error">@text-color-error</div>
+          '''
+
+          @h2 'Background colors'
+          @exampleHtml '''
+            <div class="is-color background-color-info">@background-color-info</div>
+            <div class="is-color background-color-success">@background-color-success</div>
+            <div class="is-color background-color-warning">@background-color-warning</div>
+            <div class="is-color background-color-error">@background-color-error</div>
+            <div class="is-color"></div>
+            <div class="is-color background-color-highlight">@background-color-highlight</div>
+            <div class="is-color background-color-selected">@background-color-selected</div>
+            <div class="is-color app-background-color">@app-background-color</div>
+          '''
+
+          @h2 'Base colors'
+          @exampleHtml '''
+            <div class="is-color base-background-color">@base-background-color</div>
+            <div class="is-color base-border-color">@base-border-color</div>
+          '''
+
+          @h2 'Component colors'
+          @exampleHtml '''
+            <div class="is-color pane-item-background-color">@pane-item-background-color</div>
+            <div class="is-color pane-item-border-color">@pane-item-border-color</div>
+            <div class="is-color"></div>
+            <div class="is-color input-background-color">@input-background-color</div>
+            <div class="is-color input-border-color">@input-border-color</div>
+            <div class="is-color"></div>
+            <div class="is-color tool-panel-background-color">@tool-panel-background-color</div>
+            <div class="is-color tool-panel-border-color">@tool-panel-border-color</div>
+            <div class="is-color inset-panel-background-color">@inset-panel-background-color</div>
+            <div class="is-color inset-panel-border-color">@inset-panel-border-color</div>
+            <div class="is-color panel-heading-background-color">@panel-heading-background-color</div>
+            <div class="is-color panel-heading-border-color">@panel-heading-border-color</div>
+            <div class="is-color overlay-background-color">@overlay-background-color</div>
+            <div class="is-color overlay-border-color">@overlay-border-color</div>
+            <div class="is-color"></div>
+            <div class="is-color button-background-color">@button-background-color</div>
+            <div class="is-color button-background-color-hover">@button-background-color-hover</div>
+            <div class="is-color button-background-color-selected">@button-background-color-selected</div>
+            <div class="is-color button-border-color">@button-border-color</div>
+            <div class="color"></div>
+            <div class="is-color tab-bar-background-color">@tab-bar-background-color</div>
+            <div class="is-color tab-bar-border-color">@tab-bar-border-color</div>
+            <div class="is-color tab-background-color">@tab-background-color</div>
+            <div class="is-color tab-background-color-active">@tab-background-color-active</div>
+            <div class="is-color tab-border-color">@tab-border-color</div>
+            <div class="is-color"></div>
+            <div class="is-color tree-view-background-color">@tree-view-background-color</div>
+            <div class="is-color tree-view-border-color">@tree-view-border-color</div>
+          '''
+
+          @h2 'Site colors'
+          @exampleHtml '''
+            <div class="is-color ui-site-color-1">@ui-site-color-1</div>
+            <div class="is-color ui-site-color-2">@ui-site-color-2</div>
+            <div class="is-color ui-site-color-3">@ui-site-color-3</div>
+            <div class="is-color ui-site-color-4">@ui-site-color-4</div>
+            <div class="is-color ui-site-color-5">@ui-site-color-5</div>
+          '''
+
+          @h2 'Sizes'
+          @exampleHtml '''
+            <div class="is-size disclosure-arrow-size">@disclosure-arrow-size</div>
+            <div class="is-size component-padding">@component-padding</div>
+            <div class="is-size component-icon-padding">@component-icon-padding</div>
+            <div class="is-size component-icon-size">@component-icon-size</div>
+            <div class="is-size component-line-height">@component-line-height</div>
+            <div class="is-size tab-height">@tab-height</div>
+            <div class="is-size font-size">@font-size</div>
+          '''
+
+          @h2 'Misc'
+          @exampleHtml '''
+            <div class="is-radius component-border-radius">@component-border-radius</div>
+            <div class="is-font font-family">@font-family</div>
+          '''
 
         @exampleSection 'icons', 'Icons', ->
           @p => @raw 'Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons</a> icon set version <code>2.1.2</code>. Use them to add icons to your packages.'
