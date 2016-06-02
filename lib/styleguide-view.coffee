@@ -318,7 +318,7 @@ class StyleguideView extends ScrollView
           <span class='icon icon-zap'>zap</span>
         '''
 
-      @exampleSection 'text', 'Text classes', ->
+      @exampleSection 'text', 'Text', ->
         @p => @raw 'There are a number of text classes.'
 
         @h2 'text-* classes'
@@ -343,7 +343,7 @@ class StyleguideView extends ScrollView
           <span class='inline-block highlight-error'>Error</span>
         '''
 
-      @exampleSection 'layout', 'Layout classes', ->
+      @exampleSection 'layout', 'Layout', ->
         @p => @raw 'A few things that might be useful for general layout.'
 
         @h2 '.block'
@@ -392,7 +392,7 @@ class StyleguideView extends ScrollView
           </div>
         '''
 
-      @exampleSection 'git', 'Git related classes', ->
+      @exampleSection 'git', 'Git Status', ->
         @p => @raw 'Often we need git related classes to specify status.'
 
         @h2 'status-* classes'
@@ -641,7 +641,7 @@ class StyleguideView extends ScrollView
           </atom-panel>
         '''
 
-      @exampleSection 'inset-panel', 'Inset Panel', ->
+        @h2 'Inset Panel'
         @p 'Use inside a panel'
         @exampleHtml '''
           <atom-panel class='top'>
@@ -854,18 +854,6 @@ class StyleguideView extends ScrollView
           </ul>
         '''
 
-      @exampleSection 'modal-panel', 'Modals', ->
-        @p => @raw 'Modals are like dialog boxes.'
-        @p => @raw '''
-          Supported classes: <code>.from-top</code>, <code>.from-bottom</code> and <code>.floating</code>.
-          <code>.from-top</code> will come down from the top of the UI, etc.
-        '''
-        @exampleHtml '''
-          <atom-panel class='modal'>
-            <div>Some content</div>
-          </atom-panel>
-        '''
-
       @exampleSection 'select-list', 'Select List', ->
         @p => @raw '''
           You wont be creating a <code>.select-list</code> directly, but will do so
@@ -1055,6 +1043,18 @@ class StyleguideView extends ScrollView
           </div>
         '''
 
+      @exampleSection 'modal-panel', 'Modals', ->
+        @p => @raw 'Modals are like dialog boxes.'
+        @p => @raw '''
+          Supported classes: <code>.from-top</code>, <code>.from-bottom</code> and <code>.floating</code>.
+          <code>.from-top</code> will come down from the top of the UI, etc.
+        '''
+        @exampleHtml '''
+          <atom-panel class='modal'>
+            <div>Some content</div>
+          </atom-panel>
+        '''
+
       @exampleSection 'tooltips', 'Tooltips', ->
         @p => @raw '''
           You do not create the markup directly. You call
@@ -1099,7 +1099,7 @@ class StyleguideView extends ScrollView
           </ul>
         '''
 
-      @exampleSection 'background-messages', 'Background Messages', ->
+        @h2 'Background Messages'
         @p => @raw '''
           Subtle background messages for panes. Use for cases when there are no results.
         '''
@@ -1119,20 +1119,6 @@ class StyleguideView extends ScrollView
         @exampleHtml '''
           <ul class='background-message centered'>
             <li>No Results</li>
-          </ul>
-        '''
-
-      @exampleSection 'error-messages', 'Messages', ->
-        @p => @raw '''
-          Use to convey info to the user when something happens. See <code>find-and-replace</code>
-          for an example.
-        '''
-
-        @h2 'Error messages'
-        @exampleHtml '''
-          <ul class='error-messages block'>
-            <li>This is an error!</li>
-            <li>And another</li>
           </ul>
         '''
 
