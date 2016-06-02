@@ -44,12 +44,6 @@
     }
   }
 
-  .styleguide-header h1 {
-    font-size: 2em;
-    margin: 1em @styleguide-spacing .5em @styleguide-spacing;
-    color: @text-color-highlight;
-  }
-
   .section-heading.section-heading {
     padding: @styleguide-spacing @styleguide-spacing 0 @styleguide-spacing;
     cursor: pointer;
@@ -75,6 +69,15 @@
     right: @component-padding;
     top: @component-padding;
     z-index: 100;
+  }
+}
+
+.styleguide-header {
+  padding: @styleguide-spacing;
+  h1 {
+    font-size: 2em;
+    margin: .5em 0;
+    color: @text-color-highlight;
   }
 }
 
