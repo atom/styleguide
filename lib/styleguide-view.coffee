@@ -673,36 +673,28 @@ class StyleguideView extends ScrollView
               <li class='list-item'>
                 <span class='icon icon-file-directory'>Using a span with an icon</span>
               </li>
-
               <li class='list-item'>
                 <i class='icon icon-file-directory'></i>
-                <span>With .icon-file-directory using &lt;i%gt; tags</span>
+                <span>With .icon-file-directory using &lt;i&gt; tags</span>
               </li>
-
               <li class='list-item selected'>
                 <span class='icon icon-file-directory'>Selected with .icon-file-directory</span>
               </li>
-
               <li class='list-item'>
                 <span class='no-icon'>With .no-icon</span>
               </li>
-
               <li class='list-item'>
                 <span class='icon icon-file-text'>With icon-file-text</span>
               </li>
-
               <li class='list-item'>
                 <span class='icon icon-file-media'>With icon-file-media</span>
               </li>
-
               <li class='list-item'>
                 <span class='icon icon-file-symlink-file'>With icon-file-symlink-file</span>
               </li>
-
               <li class='list-item'>
                 <span class='icon icon-file-submodule'>With icon-file-submodule</span>
               </li>
-
               <li class='list-item'>
                 <span class='icon icon-book'>With icon-book</span>
               </li>
