@@ -1099,7 +1099,7 @@ class StyleguideView extends ScrollView
           </ul>
         '''
 
-      @exampleSection 'background-messages', 'Background Messages', ->
+        @h2 'Background Messages'
         @p => @raw '''
           Subtle background messages for panes. Use for cases when there are no results.
         '''
@@ -1119,20 +1119,6 @@ class StyleguideView extends ScrollView
         @exampleHtml '''
           <ul class='background-message centered'>
             <li>No Results</li>
-          </ul>
-        '''
-
-      @exampleSection 'error-messages', 'Messages', ->
-        @p => @raw '''
-          Use to convey info to the user when something happens. See <code>find-and-replace</code>
-          for an example.
-        '''
-
-        @h2 'Error messages'
-        @exampleHtml '''
-          <ul class='error-messages block'>
-            <li>This is an error!</li>
-            <li>And another</li>
           </ul>
         '''
 
