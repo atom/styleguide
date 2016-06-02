@@ -2,7 +2,8 @@
 
 .styleguide {
 
-  // Icons
+  // Icons ---------------
+
   [data-name="icons"] {
     .example-rendered {
       display: flex;
@@ -44,7 +45,8 @@
     }
   }
 
-  // Site colors
+  // Site colors ---------------
+
   .ui-site-1,
   .ui-site-2,
   .ui-site-3,
@@ -52,6 +54,25 @@
   .ui-site-5 {
     height: 10px;
     width: 100px;
+  }
+
+
+  // Misc ---------------
+
+  .popover-list {
+    position: relative;
+  }
+
+  .popover-list,
+  .select-list {
+    atom-text-editor[mini] { height: 27px; }
+  }
+
+  .tooltip {
+    position: relative;
+    opacity: 1;
+    display: inline-block;
+    margin-right: @component-padding;
   }
 
 }
