@@ -6,14 +6,40 @@
 
 .styleguide {
   position: relative;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
   padding: 0;
+}
+
+.styleguide-controls {
+  position: absolute;
+  right: @component-padding;
+  top: @component-padding;
+  z-index: 100;
+}
+
+.styleguide-header {
+  padding: @styleguide-spacing;
+  border-bottom: 1px solid @base-border-color;
+  h1 {
+    font-size: 2em;
+    margin: 0 0 .5em 0;
+    color: @text-color-highlight;
+  }
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.styleguide-sections {
+  flex: 1;
+  overflow: auto;
 
   & > section {
     background-color: @styleguide-bg;
     padding: 0;
-    border-top: 1px solid @base-border-color;
-    border-bottom: none;
+    border-bottom: 1px solid @base-border-color;
+    border-top: none;
 
     &:first-of-type {
       background-color: @base-background-color;
@@ -62,22 +88,6 @@
   section > p {
     font-size: 1.2em;
     margin: .5em @styleguide-spacing 1em @styleguide-spacing;
-  }
-}
-
-.styleguide-controls {
-  position: absolute;
-  right: @component-padding;
-  top: @component-padding;
-  z-index: 100;
-}
-
-.styleguide-header {
-  padding: @styleguide-spacing;
-  h1 {
-    font-size: 2em;
-    margin: .5em 0;
-    color: @text-color-highlight;
   }
 }
 
