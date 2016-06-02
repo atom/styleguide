@@ -17,6 +17,8 @@ class StyleguideView extends ScrollView
           @button outlet: 'expandAllButton', class: 'btn', 'Expand All'
 
       @main outlet: 'styleguideSections', class: 'styleguide-sections', =>
+
+        # Fold at indent level 5 -> `cmd-k cmd-5`
         @exampleSection 'variables', 'Variables', ->
           @p => @raw '''Use these UI variables in your package's stylesheets. They are set by UI themes and therefore your package will match the overall look. Make sure to @import 'ui-variables' in your stylesheets to use these variables.'''
 
