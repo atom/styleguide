@@ -370,16 +370,6 @@ class StyleguideView extends ScrollView
           @p 'Sometimes you need to separate components horizontally.'
           @exampleHtml '''
             <div class='block'>
-              <label>This is a thing with stuff in it</label>
-              <div>
-                <atom-text-editor mini class='inline-block'>Something you typed...</atom-text-editor>
-                <div class='inline-block btn-group'>
-                  <button class='btn'>One</button>
-                  <button class='btn'>Two</button>
-                </div>
-              </div>
-            </div>
-            <div class='block'>
               <button class='inline-block btn'>Do it</button>
               <button class='inline-block btn'>Another</button>
               <button class='inline-block btn'>OMG again</button>
