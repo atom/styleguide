@@ -11,8 +11,13 @@
       align-content: flex-start;
     }
 
+    .example-code {
+      display: none; // remove, doesn't make much sense here
+    }
+
     .icon {
-      flex-basis: 50%;
+      position: relative;
+      flex: 1 0 200px;
       padding: 10px 0 10px 40px;
       color: @text-color-subtle;
       &:before {
