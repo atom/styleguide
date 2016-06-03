@@ -6,4 +6,4 @@ as a reference when developing themes and packages.
 * `cmd-ctrl-shift-g` opens it in a new tab
 * You can click on the section headings to expand/collapse them.
 
-![Demo](https://f.cloud.github.com/assets/69169/1045837/620444d4-102c-11e3-9cac-8d766a8d62b0.png)
+![Demo](https://cloud.githubusercontent.com/assets/378023/15767543/ccecf9bc-2983-11e6-9c5e-d228d39f52b0.png)
