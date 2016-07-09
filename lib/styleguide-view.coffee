@@ -322,6 +322,32 @@ class StyleguideView extends ScrollView
             <span class='icon icon-zap'>zap</span>
           '''
 
+        @exampleSection 'inputs', 'Inputs', ->
+          @p => @raw 'Various inputs and controls.'
+
+          @h2 'Text Inputs'
+          @exampleHtml '''
+            <input class='input-text' type='text' placeholder='Text'>
+            <input class='input-search' type='search' placeholder='Search'>
+            <textarea class='input-textarea' placeholder='Text Area'></textarea>
+          '''
+
+          @h2 'Controls'
+          @exampleHtml '''
+            <label class='input-label'><input class='input-radio' type='radio' name='radio'> Radio</label>
+            <label class='input-label'><input class='input-radio' type='radio' name='radio' checked> Radio</label>
+            <label class='input-label'><input class='input-checkbox' type='checkbox' checked> Checkbox</label>
+            <label class='input-label'>OFF <input class='input-toggle' type='checkbox' checked> ON Toggle</label>
+            <input class='input-range' type='range'>
+          '''
+
+          @h2 'Misc'
+          @exampleHtml '''
+            <input class='input-color' type='color' value='#FF85FF'>
+            <input class='input-number' type='number' min='1' max='10' placeholder='1-10'>
+            <select class='input-select'><option>Option 1</option><option>Option 2</option><option>Option 3</option></select>
+          '''
+
         @exampleSection 'text', 'Text', ->
           @p => @raw 'There are a number of text classes.'
 
