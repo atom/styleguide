@@ -1,5 +1,9 @@
 @import "ui-variables";
 
+//
+// This adds some component styles specifically for the Styleguide
+// --------------------------------
+
 .styleguide {
 
   // Icons ---------------
@@ -49,6 +53,26 @@
       }
     }
   }
+
+  // Inputs + controls ---------------
+
+  .input-search,
+  .input-textarea {
+    margin-top: @component-padding;
+  }
+
+  .input-label {
+    display: block;
+    width: -webkit-max-content;
+    margin: 0 1em 1em 0;
+  }
+
+  .input-color,
+  .input-number,
+  .input-select {
+    margin: 0 @component-padding 0 0 !important;
+  }
+
 
   // Site colors ---------------
 
