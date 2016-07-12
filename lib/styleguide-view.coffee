@@ -337,7 +337,7 @@ class StyleguideView extends ScrollView
             <label class='input-label'><input class='input-radio' type='radio' name='radio'> Radio</label>
             <label class='input-label'><input class='input-radio' type='radio' name='radio' checked> Radio</label>
             <label class='input-label'><input class='input-checkbox' type='checkbox' checked> Checkbox</label>
-            <label class='input-label'>OFF <input class='input-toggle' type='checkbox' checked> ON Toggle</label>
+            <label class='input-label'><input class='input-toggle' type='checkbox' checked> Toggle</label>
             <input class='input-range' type='range'>
           '''
 
