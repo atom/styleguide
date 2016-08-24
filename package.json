@@ -9,7 +9,7 @@
     "atom-selector-linter": "^0.1.4",
     "atom-space-pen-views": "^2.0.0",
     "coffee-script": "~1.8.0",
-    "highlights": "1.4.0",
+    "highlights": "1.4.1",
     "js-beautify": "^1.4.0",
     "underscore-plus": "^1.0.0"
   },
