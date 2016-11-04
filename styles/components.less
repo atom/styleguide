@@ -43,13 +43,25 @@
       }
     }
 
-    // Shift the GitHub logo since it's quite wide
-    .icon-logo-github {
-      &:before {
-        margin-left: -60px;
-      }
+    // Make the Gist logo bigger
+    .icon-logo-gist {
+      &:before,
       &:hover:before {
-        margin-left: -100px;
+        font-size: 2.5em;
+        margin-top: -.05em;
+        margin-left: -1.3em;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    // Make the GitHub logo bigger
+    .icon-logo-github {
+      &:before,
+      &:hover:before {
+        font-size: 3em;
+        margin-top: .08em;
+        margin-left: -1.2em;
       }
     }
   }
