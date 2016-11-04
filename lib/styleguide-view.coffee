@@ -112,7 +112,9 @@ class StyleguideView extends ScrollView
           '''
 
         @exampleSection 'icons', 'Icons', ->
-          @p => @raw 'Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons</a> icon set version <code>2.1.2</code>, a great way to add icons to your packages. Use the <code>icon icon-</code> prefix in front of an icon name. See the <a href="http://flight-manual.atom.io/hacking-atom/sections/iconography/">documentation</a> for more details.'
+          @p => @raw "Atom comes bundled with the Octicons. It lets you easily add icons to your packages."
+
+          @p => @raw 'Currently version <code>4.4.0</code> is available. In addition some older icons from version <code>2.1.2</code> are still kept for backwards compatibility. Make sure to use the <code>icon icon-</code> prefix in front of an icon name. See the <a href="http://flight-manual.atom.io/hacking-atom/sections/iconography/">documentation</a> for more details.'
 
           @h2 'Octicons'
           @exampleHtml '''
