@@ -112,7 +112,9 @@ class StyleguideView extends ScrollView
           '''
 
         @exampleSection 'icons', 'Icons', ->
-          @p => @raw 'Atom comes bundled with the <a href="https://github.com/github/octicons/tree/v2.1.2">Octicons</a> icon set version <code>2.1.2</code>, a great way to add icons to your packages. Use the <code>icon icon-</code> prefix in front of an icon name. See the <a href="http://flight-manual.atom.io/hacking-atom/sections/iconography/">documentation</a> for more details.'
+          @p => @raw "Atom comes bundled with the Octicons. It lets you easily add icons to your packages."
+
+          @p => @raw 'Currently version <code>4.4.0</code> is available. In addition some older icons from version <code>2.1.2</code> are still kept for backwards compatibility. Make sure to use the <code>icon icon-</code> prefix in front of an icon name. See the <a href="http://flight-manual.atom.io/hacking-atom/sections/iconography/">documentation</a> for more details.'
 
           @h2 'Octicons'
           @exampleHtml '''
@@ -128,7 +130,10 @@ class StyleguideView extends ScrollView
             <span class='icon icon-arrow-small-right'>arrow-small-right</span>
             <span class='icon icon-arrow-small-up'>arrow-small-up</span>
             <span class='icon icon-arrow-up'>arrow-up</span>
+            <span class='icon icon-beaker'>beaker</span>
             <span class='icon icon-beer'>beer</span>
+            <span class='icon icon-bell'>bell</span>
+            <span class='icon icon-bold'>bold</span>
             <span class='icon icon-book'>book</span>
             <span class='icon icon-bookmark'>bookmark</span>
             <span class='icon icon-briefcase'>briefcase</span>
@@ -157,6 +162,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-dash'>dash</span>
             <span class='icon icon-dashboard'>dashboard</span>
             <span class='icon icon-database'>database</span>
+            <span class='icon icon-desktop-download'>desktop-download</span>
             <span class='icon icon-device-camera'>device-camera</span>
             <span class='icon icon-device-camera-video'>device-camera-video</span>
             <span class='icon icon-device-desktop'>device-desktop</span>
@@ -167,10 +173,12 @@ class StyleguideView extends ScrollView
             <span class='icon icon-diff-modified'>diff-modified</span>
             <span class='icon icon-diff-removed'>diff-removed</span>
             <span class='icon icon-diff-renamed'>diff-renamed</span>
+            <span class='icon icon-ellipses'>ellipses</span>
             <span class='icon icon-ellipsis'>ellipsis</span>
             <span class='icon icon-eye'>eye</span>
             <span class='icon icon-eye-unwatch'>eye-unwatch</span>
             <span class='icon icon-eye-watch'>eye-watch</span>
+            <span class='icon icon-file'>file</span>
             <span class='icon icon-file-add'>file-add</span>
             <span class='icon icon-file-binary'>file-binary</span>
             <span class='icon icon-file-code'>file-code</span>
@@ -202,6 +210,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-git-pull-request'>git-pull-request</span>
             <span class='icon icon-git-pull-request-abandoned'>git-pull-request-abandoned</span>
             <span class='icon icon-globe'>globe</span>
+            <span class='icon icon-grabber'>grabber</span>
             <span class='icon icon-graph'>graph</span>
             <span class='icon icon-heart'>heart</span>
             <span class='icon icon-history'>history</span>
@@ -214,6 +223,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-issue-closed'>issue-closed</span>
             <span class='icon icon-issue-opened'>issue-opened</span>
             <span class='icon icon-issue-reopened'>issue-reopened</span>
+            <span class='icon icon-italic'>italic</span>
             <span class='icon icon-jersey'>jersey</span>
             <span class='icon icon-jump-down'>jump-down</span>
             <span class='icon icon-jump-left'>jump-left</span>
@@ -231,6 +241,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-lock'>lock</span>
             <span class='icon icon-log-in'>log-in</span>
             <span class='icon icon-log-out'>log-out</span>
+            <span class='icon icon-logo-gist'>logo-gist</span>
             <span class='icon icon-logo-github'>logo-github</span>
             <span class='icon icon-mail'>mail</span>
             <span class='icon icon-mail-read'>mail-read</span>
@@ -265,6 +276,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-playback-play'>playback-play</span>
             <span class='icon icon-playback-rewind'>playback-rewind</span>
             <span class='icon icon-plug'>plug</span>
+            <span class='icon icon-plus-small'>plus-small</span>
             <span class='icon icon-plus'>plus</span>
             <span class='icon icon-podium'>podium</span>
             <span class='icon icon-primitive-dot'>primitive-dot</span>
@@ -275,6 +287,7 @@ class StyleguideView extends ScrollView
             <span class='icon icon-quote'>quote</span>
             <span class='icon icon-radio-tower'>radio-tower</span>
             <span class='icon icon-remove-close'>remove-close</span>
+            <span class='icon icon-reply'>reply</span>
             <span class='icon icon-repo'>repo</span>
             <span class='icon icon-repo-clone'>repo-clone</span>
             <span class='icon icon-repo-create'>repo-create</span>
@@ -293,8 +306,10 @@ class StyleguideView extends ScrollView
             <span class='icon icon-search-save'>search-save</span>
             <span class='icon icon-server'>server</span>
             <span class='icon icon-settings'>settings</span>
+            <span class='icon icon-shield'>shield</span>
             <span class='icon icon-sign-in'>sign-in</span>
             <span class='icon icon-sign-out'>sign-out</span>
+            <span class='icon icon-smiley'>smiley</span>
             <span class='icon icon-split'>split</span>
             <span class='icon icon-squirrel'>squirrel</span>
             <span class='icon icon-star'>star</span>
@@ -306,9 +321,13 @@ class StyleguideView extends ScrollView
             <span class='icon icon-tag'>tag</span>
             <span class='icon icon-tag-add'>tag-add</span>
             <span class='icon icon-tag-remove'>tag-remove</span>
+            <span class='icon icon-tasklist'>tasklist</span>
             <span class='icon icon-telescope'>telescope</span>
             <span class='icon icon-terminal'>terminal</span>
+            <span class='icon icon-text-size'>text-size</span>
             <span class='icon icon-three-bars'>three-bars</span>
+            <span class='icon icon-thumbsdown'>thumbsdown</span>
+            <span class='icon icon-thumbsup'>thumbsup</span>
             <span class='icon icon-tools'>tools</span>
             <span class='icon icon-trashcan'>trashcan</span>
             <span class='icon icon-triangle-down'>triangle-down</span>
@@ -317,7 +336,10 @@ class StyleguideView extends ScrollView
             <span class='icon icon-triangle-up'>triangle-up</span>
             <span class='icon icon-unfold'>unfold</span>
             <span class='icon icon-unmute'>unmute</span>
+            <span class='icon icon-unverified'>unverified</span>
+            <span class='icon icon-verified'>verified</span>
             <span class='icon icon-versions'>versions</span>
+            <span class='icon icon-watch'>watch</span>
             <span class='icon icon-x'>x</span>
             <span class='icon icon-zap'>zap</span>
           '''
