@@ -1189,7 +1189,7 @@ class StyleguideView extends ScrollView
   # clicks to expand a section, it will load said section.
   @exampleSections: {}
   @exampleSection: (name, title, buildFn) ->
-    @exampleSections[name] = ExampleSection.build(this, name, title, buildFn)
+    @exampleSections[name] = new ExampleSection(name, title, buildFn)
 
   initialize: ({@uri, collapsedSections}={}) ->
     @on 'click', '.section-heading', ->

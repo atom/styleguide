@@ -1,32 +1,31 @@
-{$$} = require 'atom-space-pen-views'
-
 module.exports =
 class ExampleSection
   loaded: false
 
-  @build: (view, name, title, buildFn) ->
-    sectionEl = $$ ->
-      @section class: 'bordered collapsed', 'data-name': name, =>
-        @h1 class: 'section-heading', title
-    new ExampleSection(name, sectionEl, buildFn)
+  constructor: (@name, @title, @buildFn) ->
+    @el = document.createElement('section')
+    @el.classList.add('bordered', 'collapsed')
+    @el.dataset.name = name
 
-  constructor: (@name, @el, @buildFn) ->
+    h1 = document.createElement('h1')
+    h1.classList.add('section-heading')
+    h1.textContent = title
+    @el.appendChild(h1)
 
   load: ->
     return if @loaded
-    self = this
-    @el.append($$ -> self.buildFn.call(this))
+    @el.appendChild(@buildFn())
     @loaded = true
 
   toggle: ->
-    if @el.hasClass('collapsed')
+    if @el.classList.has('collapsed')
       @expand()
     else
       @collapse()
 
   collapse: ->
-    @el.addClass('collapsed')
+    @el.classList.add('collapsed')
 
   expand: ->
     @load()
-    @el.removeClass('collapsed')
+    @el.classtList.remove('collapsed')
