@@ -15,8 +15,3 @@ module.exports =
   createStyleguideView: (state) ->
     StyleguideView = require './styleguide-view'
     new StyleguideView(state)
-
-if parseFloat(atom.getVersion()) < 1.7
-  atom.deserializers.add
-    name: 'StyleguideView'
-    deserialize: module.exports.createStyleguideView.bind(module.exports)

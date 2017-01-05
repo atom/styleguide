@@ -6,8 +6,9 @@
   "repository": "https://github.com/atom/styleguide",
   "license": "MIT",
   "dependencies": {
-    "atom-space-pen-views": "^2.0.0",
+    "atom-select-list": "0.0.7",
     "coffee-script": "~1.8.0",
+    "dedent": "^0.6.0",
     "highlights": "1.4.1",
     "js-beautify": "^1.4.0",
     "underscore-plus": "^1.0.0"
