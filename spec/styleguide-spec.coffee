@@ -1,5 +1,3 @@
-{$} = require 'atom-space-pen-views'
-
 describe "Style Guide", ->
   workspaceElement = null
 
@@ -19,4 +17,4 @@ describe "Style Guide", ->
         styleGuideView = atom.workspace.getActivePaneItem()
 
     it "opens the style guide", ->
-      expect(styleGuideView.text()).toContain("Styleguide")
+      expect(styleGuideView.element.textContent).toContain("Styleguide")
