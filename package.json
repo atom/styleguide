@@ -9,7 +9,7 @@
     "atom-select-list": "0.0.7",
     "coffee-script": "~1.8.0",
     "dedent": "^0.6.0",
-    "highlights": "1.4.1",
+    "highlights": "2.1.1",
     "js-beautify": "^1.4.0",
     "underscore-plus": "^1.0.0"
   },
