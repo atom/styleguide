@@ -6,7 +6,7 @@
   "repository": "https://github.com/atom/styleguide",
   "license": "MIT",
   "dependencies": {
-    "atom-select-list": "0.0.7",
+    "atom-select-list": "0.0.12",
     "coffee-script": "~1.8.0",
     "dedent": "^0.6.0",
     "highlights": "2.1.1",
