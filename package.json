@@ -7,12 +7,10 @@
   "license": "MIT",
   "dependencies": {
     "atom-select-list": "^0.1.0",
-    "coffee-script": "~1.8.0",
     "dedent": "^0.7.0",
     "etch": "0.9.0",
     "highlights": "^3.1.1",
-    "js-beautify": "1.6.14",
-    "underscore-plus": "^1.0.0"
+    "js-beautify": "1.6.14"
   },
   "deserializers": {
     "StyleguideView": "createStyleguideView"
@@ -21,6 +19,17 @@
     "atom": "*"
   },
   "devDependencies": {
-    "coffeelint": "^1.9.7"
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": {
+      "atomtest": true,
+      "browser": true,
+      "jasmine": true,
+      "node": true
+    },
+    "globals": [
+      "atom"
+    ]
   }
 }
