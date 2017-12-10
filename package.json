@@ -6,7 +6,7 @@
   "repository": "https://github.com/atom/styleguide",
   "license": "MIT",
   "dependencies": {
-    "atom-select-list": "^0.1.0",
+    "atom-select-list": "^0.7.0",
     "dedent": "^0.7.0",
     "etch": "0.9.0",
     "highlights": "^3.1.1"
