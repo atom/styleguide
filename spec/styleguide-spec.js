@@ -1,4 +1,4 @@
-const {it, fit, ffit, beforeEach, afterEach} = require('./async-spec-helpers') // eslint-disable-line no-unused-vars
+const { it, fit, ffit, beforeEach, afterEach } = require('./async-spec-helpers') // eslint-disable-line no-unused-vars
 
 describe('Style Guide', () => {
   beforeEach(async () => {
